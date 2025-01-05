@@ -1,0 +1,25 @@
+import { UserRound } from "lucide-react";
+import SectionTitle from "../section-title";
+import InputField from "@/components/ui/input/field";
+import SwitchField from "@/components/ui/switch/field";
+
+const BasicInfoSection = () => {
+  return (
+    <div>
+      <SectionTitle title="Informaçoes Básicas" icon={UserRound} />
+      <div className="grid grid-cols-2 gap-4 mt-4 w-full">
+        <div className="col-span-full w-full flex gap-3 items-end">
+          <InputField
+            label="Foto"
+            placeholder="https://..."
+            name="content.image.url"
+            containerClassName="w-full"
+          />
+          <SwitchField name="content.image.visible" className="mb-2" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BasicInfoSection;

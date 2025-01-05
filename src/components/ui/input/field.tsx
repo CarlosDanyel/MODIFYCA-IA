@@ -8,9 +8,16 @@ import FieldWrapper from "../field-wrapper";
 type InputFieldProps = ComponentProps<typeof Input> & {
   label: string;
   name: string;
+  containerClassName?: string;
 };
 
-const InputField = ({ label, name, required, ...props }: InputFieldProps) => {
+const InputField = ({
+  label,
+  name,
+  required,
+  containerClassName,
+  ...props
+}: InputFieldProps) => {
   const { control } = useFormContext();
   return (
     <Controller
@@ -20,7 +27,7 @@ const InputField = ({ label, name, required, ...props }: InputFieldProps) => {
         required: required && "Campo obrigatorio*",
       }}
       render={({ field, fieldState }) => (
-        <FieldWrapper label={label}>
+        <FieldWrapper label={label} className={containerClassName}>
           <Input {...props} {...field} />
           {fieldState.error && (
             <p className="absolute text-sm text-red-500 top-16">
