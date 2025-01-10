@@ -69,7 +69,7 @@ type ResumeProjectData = {
 
 type ResumeContentData = {
     image: ResumeImageData;
-    infos: ResumeInfosData;
+    infos: ResumesInfosData;
     summary: string;
     socialMedias: Partial<ResumeSocialMediaData>[];
     experiences: Partial<ResumeExperienceData>[];

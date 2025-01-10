@@ -1,30 +1,41 @@
-"use client";
+'use client';
 
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/components/ui/resizable";
-import InfosSidebar from "./infos-sidebar/infos-sidebar";
-import { ResumeContent } from "./resume-content";
-import StructureSidebar from "./structure-sidebar";
-import { FormProvider, useForm } from "react-hook-form";
+} from '@/components/ui/resizable';
+import InfosSidebar from './infos-sidebar';
+import { ResumeContent } from './resume-content';
+import StructureSidebar from './structure-sidebar';
+import { FormProvider, useForm } from 'react-hook-form';
 
 const ResumePage = () => {
   const defaultValues: ResumeData = {
     content: {
       image: {
-        url: "",
+        url: '',
         visible: true,
       },
       infos: {
-        email: "",
-        fullName: "",
-        headline: "",
-        location: "",
-        phone: "",
-        website: "",
+        email: '',
+        fullName: '',
+        headline: '',
+        location: '',
+        phone: '',
+        website: '',
       },
+      summary: '',
+      certifications: [],
+      educations: [],
+      experiences: [],
+      languages: [],
+      projects: [],
+      skills: [],
+      socialMedias: [
+        { icon: '', name: 'test 1', url: 'test 1', username: 'test 1' },
+        { icon: '', name: 'test 2', url: 'test 2', username: 'test 2' },
+      ],
     },
   };
 
