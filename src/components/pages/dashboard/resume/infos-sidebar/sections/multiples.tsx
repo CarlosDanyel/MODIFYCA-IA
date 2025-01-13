@@ -8,13 +8,16 @@ import {
   Languages,
   Share2,
 } from 'lucide-react';
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import {
   MultipleDragList,
   MultipleDragListItemData,
 } from '../multiples-drag-list';
+import { ManegeMultipleItemDiaplog } from '../multiples-drag-list/manege-multiple-item-dialog';
 
 const MultiplesSections = () => {
+  const [sectionTrueAdd, setsectionTrueAdd] =
+    useState<MultipleDragListItemData | null>(null);
   const sectionsKeys: MultipleDragListItemData[] = [
     {
       formKey: 'socialMedias',
@@ -73,11 +76,21 @@ const MultiplesSections = () => {
           <Separator className="my-5" />
           <MultipleDragList
             data={section}
-            onAdd={() => {}}
+            onAdd={() => setsectionTrueAdd(section)}
             onEdit={index => {}}
           />
         </Fragment>
       ))}
+
+      {sectionTrueAdd && (
+        <ManegeMultipleItemDiaplog
+          data={sectionTrueAdd}
+          open={!!sectionTrueAdd}
+          setOpen={value => {
+            if (!value) setsectionTrueAdd(null);
+          }}
+        />
+      )}
     </div>
   );
 };
