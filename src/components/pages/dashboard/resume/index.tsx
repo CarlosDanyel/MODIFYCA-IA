@@ -34,6 +34,22 @@ const ResumePage = () => {
       skills: [],
       socialMedias: [],
     },
+    structure: {
+      template: 'ditto',
+      colorTheme: 'slate',
+      language: 'portuguese',
+      layout: {
+        mainSection: [
+          { key: 'socialMedias' },
+          { key: 'summary' },
+          { key: 'experiences' },
+          { key: 'educations' },
+          { key: 'certifications' },
+          { key: 'projects' },
+        ],
+        slidebarSection: [{ key: 'languages' }, { key: 'skills' }],
+      },
+    },
   };
 
   const methods = useForm<ResumeData>({ defaultValues });

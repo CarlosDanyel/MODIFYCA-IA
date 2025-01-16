@@ -1,7 +1,7 @@
 import { BaseDiaploProps, Dialog } from '@/components/ui/dialog';
 import { MultipleDragListItemData, ResumeArrayKeys } from '.';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
-import { Fragment, useMemo } from 'react';
+import { Fragment, useEffect, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import InputField from '@/components/ui/input/field';
@@ -15,6 +15,7 @@ import { toast } from 'sonner';
 type ManegeMultipleItemDiaplogProps = BaseDiaploProps & {
   data: MultipleDragListItemData;
   setOpen: (open: boolean) => void;
+  initialData?: any;
 };
 
 type FormConfig<T> = {
@@ -237,26 +238,18 @@ export const ManegeMultipleItemDiaplog = ({
   data,
   open,
   setOpen,
+  initialData,
 }: ManegeMultipleItemDiaplogProps) => {
   const methods = useForm();
   const { setValue, getValues } = useFormContext<ResumeData>();
 
-  const onSubmit = (formData: any) => {
-    const curretValue = getValues();
+  const isEditing = !!initialData;
 
-    const formKey = data.formKey;
-    const currentFieldValue = curretValue.content[formKey] ?? [];
-
-    setValue(`content.${formKey}`, [
-      ...currentFieldValue,
-      {
-        ...formData,
-        id: uuid(),
-      },
-    ]);
-    setOpen(false);
-    toast.success('Item adicionado com sucesso!');
-  };
+  useEffect(() => {
+    if (initialData) {
+      methods.reset(initialData);
+    }
+  }, [initialData, methods]);
 
   const formContent = useMemo(() => {
     const config = formConfig[data.formKey];
@@ -298,6 +291,54 @@ export const ManegeMultipleItemDiaplog = ({
     });
   }, [data.formKey]);
 
+  const onDelete = () => {
+    const curretValue = getValues();
+
+    const formKey = data.formKey;
+    const currentFieldValue = curretValue.content[formKey] ?? [];
+
+    const updateItems = currentFieldValue.filter(
+      (item: any) => item.id != initialData.id
+    );
+
+    setValue(`content.${formKey}`, updateItems);
+    setOpen(false);
+
+    toast.success('Item Removido com sucesso!');
+  };
+
+  const onSubmit = (formData: any) => {
+    const curretValue = getValues();
+
+    const formKey = data.formKey;
+    const currentFieldValue = curretValue.content[formKey] ?? [];
+
+    if (isEditing) {
+      const updateItems = currentFieldValue.map((item: any) => {
+        if (item.id === initialData.id) {
+          return formData;
+        }
+
+        return item;
+      });
+
+      setValue(`content.${formKey}`, updateItems);
+      setOpen(false);
+      toast.success('Item atualizado com sucesso!');
+      return;
+    }
+
+    setValue(`content.${formKey}`, [
+      ...currentFieldValue,
+      {
+        ...formData,
+        id: uuid(),
+      },
+    ]);
+    setOpen(false);
+    toast.success('Item adicionado com sucesso!');
+  };
+
   return (
     <Dialog
       title="Adicionar novo item"
@@ -313,8 +354,17 @@ export const ManegeMultipleItemDiaplog = ({
           </div>
 
           <div className="ml-auto flex gap-3">
+            {isEditing && (
+              <Button
+                variant={'destructive'}
+                onClick={onDelete}
+                className="w-max"
+              >
+                Remover
+              </Button>
+            )}
             <Button type="submit" className="w-max">
-              Adicionar item
+              {isEditing ? 'Salvar' : 'Adiconar'}
             </Button>
           </div>
         </form>

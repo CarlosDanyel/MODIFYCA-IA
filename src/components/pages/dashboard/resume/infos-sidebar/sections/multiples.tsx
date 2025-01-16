@@ -14,10 +14,17 @@ import {
   MultipleDragListItemData,
 } from '../multiples-drag-list';
 import { ManegeMultipleItemDiaplog } from '../multiples-drag-list/manege-multiple-item-dialog';
+import { useFormContext } from 'react-hook-form';
 
 const MultiplesSections = () => {
+  const { getValues } = useFormContext();
+
   const [sectionTrueAdd, setsectionTrueAdd] =
     useState<MultipleDragListItemData | null>(null);
+
+  const [initialData, setInitialData] =
+    useState<MultipleDragListItemData | null>(null);
+
   const sectionsKeys: MultipleDragListItemData[] = [
     {
       formKey: 'socialMedias',
@@ -69,6 +76,14 @@ const MultiplesSections = () => {
       descriptionKey: 'description',
     },
   ];
+
+  const onEdit = (section: MultipleDragListItemData, index: number) => {
+    const currentValues = getValues();
+    const currentItemns = currentValues.content[section.formKey];
+
+    setsectionTrueAdd(section);
+    setInitialData(currentItemns[index]);
+  };
   return (
     <div>
       {sectionsKeys.map(section => (
@@ -77,17 +92,21 @@ const MultiplesSections = () => {
           <MultipleDragList
             data={section}
             onAdd={() => setsectionTrueAdd(section)}
-            onEdit={index => {}}
+            onEdit={index => onEdit(section, index)}
           />
         </Fragment>
       ))}
 
       {sectionTrueAdd && (
         <ManegeMultipleItemDiaplog
+          initialData={initialData}
           data={sectionTrueAdd}
           open={!!sectionTrueAdd}
           setOpen={value => {
-            if (!value) setsectionTrueAdd(null);
+            if (!value) {
+              setsectionTrueAdd(null);
+              setInitialData(null);
+            }
           }}
         />
       )}
