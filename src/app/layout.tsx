@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Nunito, Nunito_Sans } from 'next/font/google';
+import { Nunito_Sans, DM_Sans } from 'next/font/google';
 import '../styles/globals.css';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/shared/theme-provider';
@@ -10,7 +10,7 @@ const fontSans = Nunito_Sans({
   subsets: ['latin'],
 });
 
-const fontTitle = Nunito({
+const fontTitle = DM_Sans({
   variable: '--font-title',
   subsets: ['latin'],
 });
