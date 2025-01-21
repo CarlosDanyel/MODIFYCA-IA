@@ -4,6 +4,8 @@ import '../styles/globals.css';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/shared/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
+import { setDefaultOptions } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
 const fontSans = Nunito_Sans({
   variable: '--font-sans',
@@ -19,6 +21,8 @@ export const metadata: Metadata = {
   title: 'Viza',
   description: 'Crie o seu curriculo',
 };
+
+setDefaultOptions({ locale: ptBR });
 
 export default function RootLayout({
   children,

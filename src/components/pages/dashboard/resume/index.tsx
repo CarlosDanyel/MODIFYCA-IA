@@ -9,23 +9,39 @@ import InfosSidebar from './infos-sidebar';
 import { ResumeContent } from './resume-content';
 import StructureSidebar from './structure-sidebar';
 import { FormProvider, useForm } from 'react-hook-form';
+import { User } from 'next-auth';
+import { useCallback, useEffect, useRef } from 'react';
+import { useDebounce } from '@/hook/use-debounce';
+import { UpdatedResumeData } from '@/db/actions';
+import { useParams } from 'next/navigation';
+import { mergician } from 'mergician';
 
-const ResumePage = () => {
+type ResumePageProps = {
+  title: string;
+  initialData: Partial<ResumeData>;
+  user?: User;
+};
+
+const ResumePage = ({ initialData, title, user }: ResumePageProps) => {
+  const params = useParams();
+
+  const resumeId = params.id as string;
   const defaultValues: ResumeData = {
     content: {
+      summary: '<p></p>',
       image: {
-        url: '',
+        url: user?.image ?? '',
         visible: true,
       },
       infos: {
-        email: '',
-        fullName: '',
+        email: user?.email ?? '',
+        fullName: user?.name ?? '',
         headline: '',
         location: '',
         phone: '',
         website: '',
       },
-      summary: '',
+
       certifications: [],
       educations: [],
       experiences: [],
@@ -52,7 +68,33 @@ const ResumePage = () => {
     },
   };
 
-  const methods = useForm<ResumeData>({ defaultValues });
+  const methods = useForm<ResumeData>({
+    defaultValues: mergician(defaultValues, initialData),
+  });
+
+  const data = methods.watch();
+  const debouncedData = useDebounce(JSON.stringify(data), 1000);
+
+  const shoudSave = useRef(false);
+
+  const handleSaveUpdates = useCallback(() => {
+    try {
+      if (!shoudSave.current) {
+        shoudSave.current = true;
+        return;
+      }
+
+      const updatedData = methods.getValues();
+
+      UpdatedResumeData(resumeId, updatedData);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [methods, resumeId]);
+
+  useEffect(() => {
+    handleSaveUpdates();
+  }, [debouncedData, handleSaveUpdates]);
 
   return (
     <FormProvider {...methods}>
@@ -64,7 +106,7 @@ const ResumePage = () => {
           <ResizableHandle withHandle />
 
           <ResizablePanel>
-            <ResumeContent />
+            <ResumeContent title={title} />
           </ResizablePanel>
           <ResizableHandle withHandle />
 

@@ -13,11 +13,18 @@ type TooltipProps = {
   className?: string;
 };
 
-export const Tooltip = ({ children, content, className }: TooltipProps) => {
+export const Tooltip = ({
+  children,
+  content,
+  className,
+  ...props
+}: TooltipProps) => {
   return (
     <TooltipProvider>
       <TooltipRoot delayDuration={300}>
-        <TooltipTrigger asChild>{children}</TooltipTrigger>
+        <TooltipTrigger asChild {...props}>
+          {children}
+        </TooltipTrigger>
         <TooltipContent
           className={cn(
             'bg-background text-sm border border-muted text-foreground',

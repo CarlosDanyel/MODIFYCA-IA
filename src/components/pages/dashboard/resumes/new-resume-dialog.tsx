@@ -1,9 +1,12 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { Dialog, BaseDiaploProps } from "@/components/ui/dialog";
-import InputField from "@/components/ui/input/field";
-import { useForm, FormProvider } from "react-hook-form";
+import { Button } from '@/components/ui/button';
+import { Dialog, BaseDiaploProps } from '@/components/ui/dialog';
+import InputField from '@/components/ui/input/field';
+import { createResume } from '@/db/actions';
+import { useRouter } from 'next/navigation';
+import { useForm, FormProvider } from 'react-hook-form';
+import { toast } from 'sonner';
 
 type FormDataprops = {
   title: string;
@@ -12,7 +15,18 @@ type FormDataprops = {
 const NewResumeDialog = (props: BaseDiaploProps) => {
   const methods = useForm<FormDataprops>();
 
-  const onSubmit = () => {};
+  const router = useRouter();
+
+  const onSubmit = async (data: FormDataprops) => {
+    try {
+      const resume = await createResume(data.title);
+      toast.success('Currículo criado com sucesso');
+      router.push(`/dashboard/resumes/${resume.id}`);
+    } catch (error) {
+      console.error(error);
+      toast.error('Error ao criar currículo, tente novamente');
+    }
+  };
 
   return (
     <Dialog

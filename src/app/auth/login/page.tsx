@@ -4,13 +4,21 @@ import { ModeToggle } from '@/components/shared/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
+import { signIn } from '@/lib/auth';
+
+type Providers = 'github' | 'google';
 
 export default function LoginPage() {
   const handleLogin = async (form: FormData) => {
     'use server';
+
+    const provider = form.get('provider') as Providers;
+
+    await signIn(provider, { redirectTo: '/dashboard/resumes' });
   };
+
   return (
-    <div className="grid grid-cols-[1fr,1fr] h-screen">
+    <div className="grid grid-cols-[1.1fr,1fr] h-screen overflow-hidden">
       <aside>
         <Image
           width={1000}
@@ -21,7 +29,10 @@ export default function LoginPage() {
           quality={100}
         />
       </aside>
-      <form className="p-10 flex justify-center flex-col" action={handleLogin}>
+      <form
+        className="p-10 mx-auto w-full max-w-[700px] flex justify-center flex-col"
+        action={handleLogin}
+      >
         <div className="flex items-center justify-between mb-10">
           <Logo className={'max-w-[90px]'} />
           <ModeToggle />
@@ -30,7 +41,7 @@ export default function LoginPage() {
         <p className="text-sm text-muted-foreground">
           Caso <b>não tenha conta</b>, ela sera criada automaticamente.
         </p>
-        <div className="flex flex-col gap-4 mt-6">
+        <div className="flex flex-col gap-3 mt-6">
           <Button
             variant={'outline'}
             className="w-full gap-2"
@@ -41,6 +52,7 @@ export default function LoginPage() {
             <FaGithub size={20} />
             Entrar com Github
           </Button>
+          <span className=" text-center text-sm text-muted-foreground">ou</span>
           <Button
             className="w-full gap-2"
             type="submit"

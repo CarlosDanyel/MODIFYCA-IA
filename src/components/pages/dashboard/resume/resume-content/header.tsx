@@ -3,8 +3,14 @@ import { Tooltip } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 import { Copy, Download, HomeIcon, Trash } from 'lucide-react';
 import Link from 'next/link';
+import { DeleteResumeDialog } from './delete-resume-dialog';
+import { DuplicateResumeDialog } from './duplicate-resume-dialog';
 
-export const NavigationHeader = () => {
+type NavigationHeaderProps = {
+  title: string;
+};
+
+export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
   return (
     <header
       className={cn(
@@ -25,29 +31,31 @@ export const NavigationHeader = () => {
           </Link>
         </Tooltip>
         <span className="text-muted-foreground">/</span>
-        <p className="text-lg font-title font-bold ml-1">Titulo do Currículo</p>
+        <p className="text-lg font-title font-bold ml-1">{title}</p>
       </div>
       <div className="flex gap-1 ">
-        <Tooltip content="Deletar Currículo">
-          <Button
-            variant={'secondary'}
-            className="w-8 h-8 bg-transparent"
-            size={'icon'}
-          >
-            <Trash size={18} />
-          </Button>
-        </Tooltip>
-
-        <Tooltip content="Duplicar Currículo">
-          <Button
-            variant={'secondary'}
-            className="w-8 h-8 bg-transparent"
-            size={'icon'}
-          >
-            <Copy size={18} />
-          </Button>
-        </Tooltip>
-
+        <DeleteResumeDialog>
+          <Tooltip content="Deletar Currículo">
+            <Button
+              variant={'secondary'}
+              className="w-8 h-8 bg-transparent"
+              size={'icon'}
+            >
+              <Trash size={18} />
+            </Button>
+          </Tooltip>
+        </DeleteResumeDialog>
+        <DuplicateResumeDialog>
+          <Tooltip content="Duplicar Currículo">
+            <Button
+              variant={'secondary'}
+              className="w-8 h-8 bg-transparent"
+              size={'icon'}
+            >
+              <Copy size={18} />
+            </Button>
+          </Tooltip>
+        </DuplicateResumeDialog>
         <Tooltip content="Baixar Currículo">
           <Button
             variant={'secondary'}

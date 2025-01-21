@@ -30,7 +30,7 @@ const InputField = ({
       }}
       render={({ field, fieldState }) => (
         <FieldWrapper label={label} className={containerClassName}>
-          <Input {...props} {...field} />
+          <Input {...props} {...field} value={field.value || ''} />
           {extraContent && extraContent(field.value)}
           {fieldState.error && (
             <p className="absolute text-sm text-red-500 top-16">
