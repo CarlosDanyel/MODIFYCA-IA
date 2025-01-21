@@ -36,9 +36,11 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
         <span className="text-muted-foreground">/</span>
         <RenameTitleDialog>
           <Tooltip content="Editar Nome de currículo">
-            <p className="cursor-pointer text-lg font-title font-bold ml-1">
-              {title}
-            </p>
+            <Button variant={'ghost'}>
+              <p className="cursor-pointer text-lg font-title font-bold ml-1 ">
+                {title}
+              </p>
+            </Button>
           </Tooltip>
         </RenameTitleDialog>
       </div>

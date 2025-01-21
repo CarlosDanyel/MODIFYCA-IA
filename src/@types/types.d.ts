@@ -120,3 +120,5 @@ type ResumeSections =
   | 'languages'
   | 'certifications'
   | 'projects';
+
+type AiGenerationMode = 'JOB_TITLE' | 'FIX_CONTENT' | 'TRANSLATE_CONTENT';

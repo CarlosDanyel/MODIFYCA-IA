@@ -56,7 +56,11 @@ export const RenameTitleDialog = (props: BaseDiaploProps) => {
           />
 
           <div className="flex mt-4 ml-auto gap-2">
-            <Button variant={'secondary'} onClick={() => setOpen(false)}>
+            <Button
+              variant={'secondary'}
+              type="button"
+              onClick={() => setOpen(false)}
+            >
               Cancelar
             </Button>
             <Button disabled={isLoading} type="submit">

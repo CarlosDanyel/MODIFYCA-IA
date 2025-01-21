@@ -1,7 +1,7 @@
 'use client';
 
 import { ComponentProps, ReactNode } from 'react';
-import { useFormContext, Controller } from 'react-hook-form';
+import { useFormContext, Controller, Control } from 'react-hook-form';
 import { Input } from '.';
 import FieldWrapper from '../field-wrapper';
 
@@ -10,6 +10,7 @@ type InputFieldProps = ComponentProps<typeof Input> & {
   name: string;
   containerClassName?: string;
   extraContent?: (value: string) => ReactNode;
+  control?: Control<any, any>;
 };
 
 const InputField = ({
@@ -19,12 +20,13 @@ const InputField = ({
   required,
   containerClassName,
   extraContent,
+  control: CustomControl,
   ...props
 }: InputFieldProps) => {
   const { control } = useFormContext();
   return (
     <Controller
-      control={control}
+      control={CustomControl ?? control}
       name={name}
       rules={{
         required: required && 'Campo obrigatorio*',

@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 import Logo from '@/assets/logo.svg';
-import AiGenerationDropdown from './ai-generation-dropdown';
 import { Separator } from '@/components/ui/separator';
 import BasicInfoSection from './sections/basic-info';
 import SummarySection from './sections/summary';
 import MultiplesSections from './sections/multiples';
+import AiGenerationDropdown from './ai-generation-dropdown';
 
 const InfosSidebar = () => {
   return (

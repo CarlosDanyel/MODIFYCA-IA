@@ -1,6 +1,6 @@
 'use client';
 
-import { useFormContext, Controller } from 'react-hook-form';
+import { useFormContext, Controller, Control } from 'react-hook-form';
 import FieldWrapper from '../field-wrapper';
 import Editor from '.';
 
@@ -9,6 +9,8 @@ type EditorFieldProps = {
   name: string;
   containerClassName?: string;
   required?: boolean;
+  className?: string;
+  control?: Control<any, any>;
 };
 
 const EditorField = ({
@@ -16,12 +18,13 @@ const EditorField = ({
   name,
   required,
   containerClassName,
+  control: CustomControl,
   ...props
 }: EditorFieldProps) => {
   const { control } = useFormContext();
   return (
     <Controller
-      control={control}
+      control={CustomControl ?? control}
       name={name}
       rules={{
         required: required && 'Campo obrigatorio*',

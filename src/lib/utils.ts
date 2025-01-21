@@ -50,3 +50,12 @@ export const formatTailwindHTML = (
   </html>
   `;
 };
+
+export const isValidJson = (json: string) => {
+  try {
+    JSON.parse(json);
+    return true;
+  } catch {
+    return false;
+  }
+};
