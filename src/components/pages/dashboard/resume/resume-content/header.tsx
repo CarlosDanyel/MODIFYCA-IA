@@ -5,12 +5,15 @@ import { Copy, Download, HomeIcon, Trash } from 'lucide-react';
 import Link from 'next/link';
 import { DeleteResumeDialog } from './delete-resume-dialog';
 import { DuplicateResumeDialog } from './duplicate-resume-dialog';
+import { useResumeDownload } from '@/hook/use-resume-download';
+import { RenameTitleDialog } from './rename-title-dialog';
 
 type NavigationHeaderProps = {
   title: string;
 };
 
 export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
+  const { handleDownloadResume, isLoading } = useResumeDownload(title);
   return (
     <header
       className={cn(
@@ -31,7 +34,13 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
           </Link>
         </Tooltip>
         <span className="text-muted-foreground">/</span>
-        <p className="text-lg font-title font-bold ml-1">{title}</p>
+        <RenameTitleDialog>
+          <Tooltip content="Editar Nome de currículo">
+            <p className="cursor-pointer text-lg font-title font-bold ml-1">
+              {title}
+            </p>
+          </Tooltip>
+        </RenameTitleDialog>
       </div>
       <div className="flex gap-1 ">
         <DeleteResumeDialog>
@@ -58,9 +67,11 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
         </DuplicateResumeDialog>
         <Tooltip content="Baixar Currículo">
           <Button
+            onClick={handleDownloadResume}
             variant={'secondary'}
             className="w-8 h-8 bg-transparent"
             size={'icon'}
+            disabled={isLoading}
           >
             <Download size={18} />
           </Button>

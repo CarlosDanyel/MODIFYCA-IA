@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, BaseDiaploProps } from '@/components/ui/dialog';
 import InputField from '@/components/ui/input/field';
 import { createResume } from '@/db/actions';
+import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { useForm, FormProvider } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -17,15 +18,16 @@ const NewResumeDialog = (props: BaseDiaploProps) => {
 
   const router = useRouter();
 
-  const onSubmit = async (data: FormDataprops) => {
-    try {
-      const resume = await createResume(data.title);
+  const { mutate: handleCreateResume, isLoading } = useMutation({
+    mutationFn: createResume,
+    onSuccess: resume => {
       toast.success('Currículo criado com sucesso');
       router.push(`/dashboard/resumes/${resume.id}`);
-    } catch (error) {
-      console.error(error);
-      toast.error('Error ao criar currículo, tente novamente');
-    }
+    },
+  });
+
+  const onSubmit = async (data: FormDataprops) => {
+    handleCreateResume(data.title);
   };
 
   return (
@@ -40,7 +42,11 @@ const NewResumeDialog = (props: BaseDiaploProps) => {
             onSubmit={methods.handleSubmit(onSubmit)}
           >
             <InputField label="Titulo" name="title" required />
-            <Button type="submit" className="w-max mt-6 ml-auto">
+            <Button
+              type="submit"
+              className="w-max mt-6 ml-auto"
+              disabled={isLoading}
+            >
               Criar currículo
             </Button>
           </form>

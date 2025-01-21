@@ -5,6 +5,7 @@ type ResumesInfosData = {
   website: string;
   phone: string;
   location: string;
+  titleResume: string;
 };
 
 type RessumeImageData = {

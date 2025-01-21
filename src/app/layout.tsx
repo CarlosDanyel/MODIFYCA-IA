@@ -2,10 +2,9 @@ import type { Metadata } from 'next';
 import { Nunito_Sans, DM_Sans } from 'next/font/google';
 import '../styles/globals.css';
 import { cn } from '@/lib/utils';
-import { ThemeProvider } from '@/components/shared/theme-provider';
-import { Toaster } from '@/components/ui/sonner';
 import { setDefaultOptions } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import { ClientProviders } from '@/components/shared/client-providers';
 
 const fontSans = Nunito_Sans({
   variable: '--font-sans',
@@ -38,15 +37,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <Toaster />
-        </ThemeProvider>
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );

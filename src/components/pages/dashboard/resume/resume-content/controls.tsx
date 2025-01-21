@@ -1,11 +1,17 @@
 import { Button } from '@/components/ui/button';
 import { Tooltip } from '@/components/ui/tooltip';
+import { useResumeDownload } from '@/hook/use-resume-download';
 import { cn } from '@/lib/utils';
 import { Download, RotateCcw, ZoomIn, ZoomOut } from 'lucide-react';
 import { useControls } from 'react-zoom-pan-pinch';
 
-export const TransformControls = () => {
+type TransformControlsProps = {
+  title: string;
+};
+
+export const TransformControls = ({ title }: TransformControlsProps) => {
   const { zoomIn, zoomOut, centerView } = useControls();
+  const { handleDownloadResume, isLoading } = useResumeDownload(title);
 
   const controls = [
     { icon: ZoomIn, label: 'Aumentar Zoom', onclick: () => zoomIn(0.2) },
@@ -17,8 +23,9 @@ export const TransformControls = () => {
     },
     {
       icon: Download,
-      label: 'Baixar Curriculo',
-      onclick: () => console.log('baixar'),
+      label: 'Baixar PDF',
+      onclick: () => handleDownloadResume(),
+      disabled: isLoading,
     },
   ];
   return (
@@ -35,6 +42,7 @@ export const TransformControls = () => {
             className="h-6 w-6 bg-transparent"
             size="icon"
             onClick={constrol.onclick}
+            disabled={constrol.disabled}
           >
             <constrol.icon size={16} />
           </Button>

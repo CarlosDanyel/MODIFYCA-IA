@@ -3,10 +3,9 @@
 import { Button } from '@/components/ui/button';
 import { BaseDiaploProps, Dialog } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { duplicateResume } from '@/db/actions';
+import { RenameResumeTitle } from '@/db/actions';
 import { useMutation } from '@tanstack/react-query';
-
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -16,20 +15,18 @@ type FormData = {
   title: string;
 };
 
-export const DuplicateResumeDialog = (props: BaseDiaploProps) => {
-  const [open, setOpen] = useState(false);
+export const RenameTitleDialog = (props: BaseDiaploProps) => {
   const params = useParams();
-  const router = useRouter();
+  const [open, setOpen] = useState(false);
   const methods = useForm<FormData>();
 
   const resumeId = params.id as string;
 
   const { mutate: handleDuplicateResume, isLoading } = useMutation({
-    mutationFn: (title: string) => duplicateResume(resumeId, title),
-    onSuccess: newResume => {
-      toast.success('Currílo duplicado com sucesso!');
+    mutationFn: (title: string) => RenameResumeTitle(resumeId, title),
+    onSuccess: () => {
+      toast.success('Currículo renomeado com sucesso!');
       setOpen(false);
-      router.push(`/dashboard/resumes/${newResume.id}`);
     },
   });
 
@@ -42,8 +39,8 @@ export const DuplicateResumeDialog = (props: BaseDiaploProps) => {
       {...props}
       open={open}
       setOpen={setOpen}
-      title="Duplicar Currículo"
-      description="Sera criado um novo currículo com o mesmo conteúdo atual. Insira um novo valor!"
+      title="Renomear Currículo"
+      description="Qual o novo nome do currículo?"
       content={
         <form
           className="flex flex-col"
@@ -54,7 +51,7 @@ export const DuplicateResumeDialog = (props: BaseDiaploProps) => {
             name="title"
             rules={{ required: 'Campo obrigatório' }}
             render={({ field }) => (
-              <Input placeholder=" Novo título" {...field} />
+              <Input placeholder=" Renomear Currículo" {...field} />
             )}
           />
 
@@ -63,7 +60,7 @@ export const DuplicateResumeDialog = (props: BaseDiaploProps) => {
               Cancelar
             </Button>
             <Button disabled={isLoading} type="submit">
-              Duplicar
+              Renomear
             </Button>
           </div>
         </form>

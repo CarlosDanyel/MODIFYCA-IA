@@ -15,6 +15,7 @@ import { useDebounce } from '@/hook/use-debounce';
 import { UpdatedResumeData } from '@/db/actions';
 import { useParams } from 'next/navigation';
 import { mergician } from 'mergician';
+import { getHighResImage } from '@/lib/utils';
 
 type ResumePageProps = {
   title: string;
@@ -25,15 +26,19 @@ type ResumePageProps = {
 const ResumePage = ({ initialData, title, user }: ResumePageProps) => {
   const params = useParams();
 
+  const userImageUrl = getHighResImage(user?.image ?? '', 200);
+  console.log(userImageUrl);
+
   const resumeId = params.id as string;
   const defaultValues: ResumeData = {
     content: {
       summary: '<p></p>',
       image: {
-        url: user?.image ?? '',
+        url: userImageUrl,
         visible: true,
       },
       infos: {
+        titleResume: title,
         email: user?.email ?? '',
         fullName: user?.name ?? '',
         headline: '',
