@@ -26,5 +26,5 @@ const generateContentForJob = async (payload: AiGenerationPayload) => {
 
 export const ApiServices = {
   getResumeUrl,
-  generateContentForJob,
+  generateContentForJob,  
 };

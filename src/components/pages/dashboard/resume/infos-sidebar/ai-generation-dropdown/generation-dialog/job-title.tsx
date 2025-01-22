@@ -32,13 +32,12 @@ export const GenerateFromJobTitle = ({
   const { control, formState, handleSubmit } = useForm<FormData>();
   const { setValue } = useFormContext<ResumeData>();
 
-  const { mutateAsync: handleGenerat } = useMutation({
+  const { mutateAsync: handleGenerate } = useMutation({
     mutationFn: ApiServices.generateContentForJob,
   });
 
   const onSubmit = async (formData: FormData) => {
-    const data = await handleGenerat(formData);
-    console.log('test', data);
+    const data = await handleGenerate(formData);
 
     const generation = JSON.parse(data.data) as GenerationData;
 
@@ -55,7 +54,7 @@ export const GenerateFromJobTitle = ({
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <InputField
         control={control}
-        name="jobTitle"
+        name="jobtitle"
         label="Titulo da vaga"
         placeholder="Desenvolvedor Front-end"
         required

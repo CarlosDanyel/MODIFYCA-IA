@@ -10,9 +10,7 @@ const schema = z.object({
 export const POST = async (request: Request) => {
   try {
     const body = await request.json();
-
     const { jobtitle, jobDescription } = schema.parse(body);
-
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [
@@ -24,9 +22,7 @@ export const POST = async (request: Request) => {
               ? ` e com a seguinte descrição da vaga: ${jobDescription}`
               : ''
           }. O conteúdo deve ser otimizado para aumentar as chances de match com a vaga, focando nas habilidades mais relevantes.
-        
           **Importante**: Não mencione o título da vaga ou dados da empresa no JSON. O conteúdo deve ser escrito de forma profissional e direta, utilizando a metodologia STAR para o campo de "sobre mim" e adotando um tom que destaque as qualificações do candidato.
-        
           Estrutura (Gere um JSON válido e bem formatado):
           {
             summary: "Campo usado para sobre mim, usando metodologia tipo STAR, focando em conquistas relevantes para a vaga.",
@@ -44,12 +40,9 @@ export const POST = async (request: Request) => {
         },
       ],
     });
-
     const json = completion.choices[0].message.content ?? '';
-
     if (!isValidJson(json)) throw new Error('JSON inválido');
-
-    return Response.json({ data: json });
+    return Response.json({ data: json });  
   } catch (error) {
     return Response.json(
       { message: 'Ocorreu um erro inesperado', error },
