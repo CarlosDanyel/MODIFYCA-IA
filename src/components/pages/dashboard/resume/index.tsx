@@ -27,7 +27,6 @@ const ResumePage = ({ initialData, title, user }: ResumePageProps) => {
   const params = useParams();
 
   const userImageUrl = getHighResImage(user?.image ?? '', 200);
-  console.log(userImageUrl);
 
   const resumeId = params.id as string;
   const defaultValues: ResumeData = {
@@ -35,7 +34,7 @@ const ResumePage = ({ initialData, title, user }: ResumePageProps) => {
       summary: '<p></p>',
       image: {
         url: userImageUrl,
-        visible: true,
+        visible: false,
       },
       infos: {
         titleResume: title,
@@ -72,6 +71,8 @@ const ResumePage = ({ initialData, title, user }: ResumePageProps) => {
       },
     },
   };
+
+  console.log('merge', mergician(defaultValues, initialData));
 
   const methods = useForm<ResumeData>({
     defaultValues: mergician(defaultValues, initialData),

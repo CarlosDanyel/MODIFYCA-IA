@@ -56,7 +56,7 @@ const Editor = ({ value, className, onChange }: EditorProps) => {
         editor?.commands.setContent(value);
       }, 0);
     }
-  }, [value]);
+  }, [value, editor]);
 
   return (
     <div

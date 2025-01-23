@@ -1,14 +1,20 @@
-"use client";
+'use client';
 
-import { useFormContext, Controller } from "react-hook-form";
-import { Switch } from ".";
+import { useFormContext, Controller } from 'react-hook-form';
+import { Switch } from '.';
 
 type SwitchFieldProps = {
   name: string;
   className?: string;
+  isVisible?: boolean;
 };
 
-const SwitchField = ({ name, className, ...props }: SwitchFieldProps) => {
+const SwitchField = ({
+  name,
+  isVisible,
+  className,
+  ...props
+}: SwitchFieldProps) => {
   const { control } = useFormContext();
   return (
     <Controller
@@ -16,6 +22,7 @@ const SwitchField = ({ name, className, ...props }: SwitchFieldProps) => {
       name={name}
       render={({ field }) => (
         <Switch
+          disabled={isVisible}
           className={className}
           {...props}
           checked={field.value}

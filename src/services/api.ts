@@ -24,7 +24,26 @@ const generateContentForJob = async (payload: AiGenerationPayload) => {
   return data;
 };
 
+const fixContent = async (content: ResumeContentData) => {
+  const { data } = await api.post('/generate/fix-content', { content });
+
+  return data;
+};
+
+type AiTranslatePayload = {
+  content: ResumeContentData;
+  language: string;
+};
+
+const traslate = async (payload: AiTranslatePayload) => {
+  const { data } = await api.post('/generate/translate', payload);
+
+  return data;
+};
+
 export const ApiServices = {
   getResumeUrl,
-  generateContentForJob,  
+  generateContentForJob,
+  fixContent,
+  traslate,
 };
