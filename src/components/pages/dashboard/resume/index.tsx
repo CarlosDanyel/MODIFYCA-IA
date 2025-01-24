@@ -72,8 +72,6 @@ const ResumePage = ({ initialData, title, user }: ResumePageProps) => {
     },
   };
 
-  console.log('merge', mergician(defaultValues, initialData));
-
   const methods = useForm<ResumeData>({
     defaultValues: mergician(defaultValues, initialData),
   });

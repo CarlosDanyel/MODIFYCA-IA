@@ -51,15 +51,13 @@ export const UserDropdown = ({ user }: UserDropdownProps) => {
             Configurações de conta
           </DropdownMenuItem>
         </Link>
-        <Link passHref href="/dashboard/account">
-          <DropdownMenuItem
-            onClick={() => signOut({ callbackUrl: '/auth/login' })}
-            className="gap-2 text-red-500"
-          >
-            <LogOut size={16} />
-            Sair
-          </DropdownMenuItem>
-        </Link>
+        <DropdownMenuItem
+          onClick={() => signOut({ callbackUrl: '/auth/login' })}
+          className="gap-2 text-red-500"
+        >
+          <LogOut size={16} />
+          Sair
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

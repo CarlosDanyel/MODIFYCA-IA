@@ -33,7 +33,7 @@ const Editor = ({ value, className, onChange }: EditorProps) => {
         types: ['headling', 'paragraph'],
       }),
     ],
-    content: { value },
+    content: value,
     editorProps: {
       attributes: {
         class: 'focus:outline-none h-full p-4',
