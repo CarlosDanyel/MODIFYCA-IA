@@ -18,6 +18,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { GenerationDialog } from './generation-dialog';
+import { useQuery } from '@tanstack/react-query';
+import { ApiServices } from '@/services/api';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const AiGenerationDropdown = () => {
   const [generationMode, setGenerationMode] = useState<AiGenerationMode | null>(
@@ -47,6 +50,13 @@ const AiGenerationDropdown = () => {
     },
   ];
 
+  const { data: credits, isLoading } = useQuery({
+    queryKey: ['credits'],
+    queryFn: ApiServices.getCredits,
+  });
+
+  console.log(credits);
+
   return (
     <>
       <DropdownMenu>
@@ -61,7 +71,8 @@ const AiGenerationDropdown = () => {
             Você possui {''}
             <strong className="text-foreground inline-flex gap-0.5 items-center">
               <BadgeCent size={14} />
-              20 Creditos
+              {isLoading ? <Skeleton className="w-5 h-5" /> : credits} {''}
+              {credits === 1 ? 'Crédito' : 'Créditos'}
             </strong>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
@@ -71,6 +82,7 @@ const AiGenerationDropdown = () => {
               key={action.label}
               className="gap-2"
               onClick={action.onClick}
+              disabled={isLoading}
             >
               <action.icon size={18} className="text-muted-foreground" />
               {action.label}

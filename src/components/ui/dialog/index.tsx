@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 import {
   Dialog as DialogRoot,
   DialogContent,
@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "./primitive";
+} from './primitive';
 
 export type BaseDiaploProps = {
   open?: boolean;

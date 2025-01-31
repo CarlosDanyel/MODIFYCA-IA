@@ -41,9 +41,16 @@ const traslate = async (payload: AiTranslatePayload) => {
   return data;
 };
 
+const getCredits = async () => {
+  const { data } = await api.get<{ credits: number }>('/credits');
+
+  return data.credits ?? 0;
+};
+
 export const ApiServices = {
   getResumeUrl,
   generateContentForJob,
   fixContent,
   traslate,
+  getCredits,
 };
