@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { ApiServices } from '@/services/api';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as React from 'react';
 import { Controller, useForm, useFormContext } from 'react-hook-form';
 import { mergician } from 'mergician';
@@ -17,6 +17,7 @@ import {
 
 import { toast } from 'sonner';
 import { languagesOptions } from '../../../structure-sidebar/sections/language';
+import { queyKeys } from '@/constants/querys-keys';
 
 type FormData = {
   language: ResumeLanguages;
@@ -27,37 +28,52 @@ type GenerateTranslationProps = {
 };
 
 export const GenerateTranslation = ({ onClose }: GenerateTranslationProps) => {
-  const { control, formState, handleSubmit } = useForm<FormData>();
+  const {
+    control,
+
+    handleSubmit,
+    getValues: getFormValues,
+  } = useForm<FormData>();
   const { setValue, getValues } = useFormContext<ResumeData>();
 
-  const { mutateAsync: handleGenerate } = useMutation({
+  const queryClient = useQueryClient();
+
+  const { mutate: handleGenerate, isLoading } = useMutation({
     mutationFn: ApiServices.traslate,
+    onSuccess: data => {
+      const content = getValues('content');
+
+      const generation = JSON.parse(data.data);
+
+      const mergedGeneration = mergician(
+        content,
+        generation
+      ) as ResumeContentData;
+
+      const language = getFormValues('language');
+
+      setValue('content', mergedGeneration);
+      setValue('structure.language', language);
+
+      toast.success('Conteúdo gerado com sucesso!');
+
+      queryClient.invalidateQueries({ queryKey: queyKeys.credits });
+
+      onClose();
+    },
   });
 
   const onSubmit = async (formData: FormData) => {
     const content = getValues('content');
+
     const selectedLanguage = languagesOptions.find(
       item => item.value === formData.language
     );
 
-    const data = await handleGenerate({
+    handleGenerate({
       content,
       language: selectedLanguage?.label!,
     });
-
-    const generation = JSON.parse(data.data);
-
-    const mergedGeneration = mergician(
-      content,
-      generation
-    ) as ResumeContentData;
-
-    setValue('content', mergedGeneration);
-    setValue('structure.language', formData.language);
-
-    toast.success('Conteúdo gerado com sucesso!');
-
-    onClose();
   };
 
   return (
@@ -88,11 +104,7 @@ export const GenerateTranslation = ({ onClose }: GenerateTranslationProps) => {
         )}
       />
 
-      <Button
-        className="w-max ml-auto"
-        type="submit"
-        disabled={formState.isSubmitting}
-      >
+      <Button className="w-max ml-auto" type="submit" disabled={isLoading}>
         Gerar conteúdo
       </Button>
     </form>

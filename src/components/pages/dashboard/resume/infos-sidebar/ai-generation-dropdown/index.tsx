@@ -21,41 +21,59 @@ import { GenerationDialog } from './generation-dialog';
 import { useQuery } from '@tanstack/react-query';
 import { ApiServices } from '@/services/api';
 import { Skeleton } from '@/components/ui/skeleton';
+import { BuyCreditsDialog } from './buy-credits-dialog';
+import { queyKeys } from '@/constants/querys-keys';
+import { toast } from 'sonner';
 
 const AiGenerationDropdown = () => {
   const [generationMode, setGenerationMode] = useState<AiGenerationMode | null>(
     null
   );
 
+  const [showCreditsDialog, setShowCreditsDialog] = useState(false);
+
+  const onAction = (mode: AiGenerationMode) => {
+    if (!credits) {
+      toast.error('Você não tem créditos suficientes!', {
+        action: {
+          label: 'Comprar créditos',
+          onClick: () => setShowCreditsDialog(true),
+        },
+      });
+
+      return;
+    }
+
+    setGenerationMode(mode);
+  };
+
   const actions = [
     {
       label: 'Comprar créditos',
       icon: CirclePercent,
-      onClick: () => console.log(''),
+      onClick: () => setShowCreditsDialog(true),
     },
     {
       label: 'Gerar conteudo para vaga de emprego',
       icon: BriefcaseBusiness,
-      onClick: () => setGenerationMode('JOB_TITLE'),
+      onClick: () => onAction('JOB_TITLE'),
     },
     {
       label: 'Melhorar e corrigir contéudo existente',
       icon: PencilLine,
-      onClick: () => setGenerationMode('FIX_CONTENT'),
+      onClick: () => onAction('FIX_CONTENT'),
     },
     {
       label: 'Traduzir contéudo existente',
       icon: Languages,
-      onClick: () => setGenerationMode('TRANSLATE_CONTENT'),
+      onClick: () => onAction('TRANSLATE_CONTENT'),
     },
   ];
 
   const { data: credits, isLoading } = useQuery({
-    queryKey: ['credits'],
+    queryKey: queyKeys.credits,
     queryFn: ApiServices.getCredits,
   });
-
-  console.log(credits);
 
   return (
     <>
@@ -90,6 +108,11 @@ const AiGenerationDropdown = () => {
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
+
+      <BuyCreditsDialog
+        open={showCreditsDialog}
+        setOpen={setShowCreditsDialog}
+      />
 
       {!!generationMode && (
         <GenerationDialog

@@ -2,7 +2,7 @@
 
 import { auth } from '@/lib/auth';
 import { db } from './drizzle';
-import { resumes } from './schema';
+import { resumes, users } from './schema';
 import { revalidatePath } from 'next/cache';
 import { eq } from 'drizzle-orm';
 
@@ -94,4 +94,22 @@ export const RenameResumeTitle = async (id: string, newTitle: string) => {
   revalidatePath('/dashboard/resumes');
 
   return UpdatedResume[0];
+};
+
+export const decrementUserCredits = async (amount: number) => {
+  const userId = await getUserIdOrThow();
+
+  const user = await db.query.users.findFirst({
+    where: eq(users.id, userId),
+  });
+
+  if (!user) throw new Error('Usuario não encontrado');
+
+  const updatedUser = await db
+    .update(users)
+    .set({ credits: user.credits - amount })
+    .where(eq(users.id, userId))
+    .returning();
+
+  return updatedUser[0];
 };
