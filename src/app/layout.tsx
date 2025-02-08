@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Nunito_Sans, DM_Sans } from 'next/font/google';
+import { Nunito_Sans, Inter_Tight } from 'next/font/google';
 import '../styles/globals.css';
 import { cn } from '@/lib/utils';
 import { setDefaultOptions } from 'date-fns';
@@ -11,8 +11,13 @@ const fontSans = Nunito_Sans({
   subsets: ['latin'],
 });
 
-const fontTitle = DM_Sans({
+const fontTitle = Inter_Tight({
   variable: '--font-title',
+  subsets: ['latin'],
+});
+
+const fontPage = Inter_Tight({
+  variable: '--font-page',
   subsets: ['latin'],
 });
 
@@ -32,9 +37,10 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased',
+          'min-h-screen bg-background font-sans antialiased ',
           fontTitle.variable,
-          fontSans.variable
+          fontSans.variable,
+          fontPage.variable
         )}
       >
         <ClientProviders>{children}</ClientProviders>

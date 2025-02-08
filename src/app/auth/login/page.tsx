@@ -3,10 +3,12 @@ import Logo from '@/assets/logo.svg';
 import { ModeToggle } from '@/components/shared/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { FcGoogle } from 'react-icons/fc';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { signIn } from '@/lib/auth';
+import Link from 'next/link';
+import { Tooltip } from '@/components/ui/tooltip';
 
-type Providers = 'github' | 'google';
+type Providers = 'github' | 'google' | 'linkedin';
 
 export default function LoginPage() {
   const handleLogin = async (form: FormData) => {
@@ -36,7 +38,11 @@ export default function LoginPage() {
         action={handleLogin}
       >
         <div className="flex items-center justify-between mb-10">
-          <Logo className={'max-w-[90px]'} />
+          <Link href={'/'} className="w-[30px]">
+            <Tooltip content="Voltar ao inicio">
+              <Logo className={'max-w-[30px]'} />
+            </Tooltip>
+          </Link>
           <ModeToggle />
         </div>
         <h1 className="text-2xl font-title font-bold">Entrar na sua conta</h1>
@@ -54,7 +60,16 @@ export default function LoginPage() {
             <FaGithub size={20} />
             Entrar com Github
           </Button>
-          <span className=" text-center text-sm text-muted-foreground">ou</span>
+          <Button
+            className="w-full gap-2"
+            type="submit"
+            name="provider"
+            value={'linkedin'}
+            variant={'outline'}
+          >
+            <FaLinkedin size={20} />
+            Entrar com Linkedin
+          </Button>
           <Button
             className="w-full gap-2"
             type="submit"

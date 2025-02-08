@@ -15,6 +15,7 @@ export default {
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
         title: ['var(--font-title)', ...fontFamily.serif],
+        page: ['var(--font-page)', ...fontFamily.serif],
         arial: ['Arial', ...fontFamily.sans],
       },
       colors: {
