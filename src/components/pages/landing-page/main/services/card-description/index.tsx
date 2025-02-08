@@ -7,6 +7,7 @@ type CardDescriptionProps = {
   cardName: string;
   isSession: () => void;
   icon: LucideIcon;
+  className?: string;
 };
 
 export const CardDescription = ({
@@ -14,10 +15,16 @@ export const CardDescription = ({
   description,
   title,
   icon: Icon,
+  className,
   isSession,
 }: CardDescriptionProps) => {
   return (
-    <div className="rounded-xl border border-muted-foreground bg-card-foreground text-card-foreground shadow py-6 px-6 flex flex-col gap-3">
+    <div
+      className={cn(
+        'rounded-xl border border-muted-foreground bg-card-foreground text-card-foreground shadow py-6 px-6 flex flex-col gap-3',
+        className
+      )}
+    >
       <div
         className={cn(
           'rounded-xl w-fit text-muted text-xs flex gap-2 p-1.5 items-center font-page font-medium',
