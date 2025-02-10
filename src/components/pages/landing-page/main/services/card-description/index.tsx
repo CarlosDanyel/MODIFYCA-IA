@@ -21,7 +21,7 @@ export const CardDescription = ({
   return (
     <div
       className={cn(
-        'rounded-xl border border-muted-foreground bg-card-foreground text-card-foreground shadow py-6 px-6 flex flex-col gap-3',
+        'rounded-xl border h-full border-muted-foreground bg-card-foreground text-card-foreground shadow py-6 px-6 flex flex-col gap-3',
         className
       )}
     >
@@ -40,7 +40,7 @@ export const CardDescription = ({
       <p className="text-muted font-sans font-semibold text-sm mb-3">
         {description}
       </p>
-      <div className="font-page font-semibold text-background flex gap-4 items-center ">
+      <div className="font-page font-semibold text-background flex gap-4 items-center mt-auto">
         Acessar Agora
         <button
           onClick={isSession}

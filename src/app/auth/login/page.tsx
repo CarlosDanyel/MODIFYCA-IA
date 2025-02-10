@@ -23,7 +23,12 @@ export default function LoginPage() {
 
   return (
     <div className="grid grid-cols-[1.1fr,1fr] h-screen overflow-hidden">
-      <aside>
+      <aside className="relative">
+        <Tooltip content="Voltar ao inicio">
+          <Logo
+            className={'max-w-[30px] absolute top-9 left-9 cursor-pointer'}
+          />
+        </Tooltip>
         <Image
           width={1000}
           height={800}
@@ -34,10 +39,10 @@ export default function LoginPage() {
         />
       </aside>
       <form
-        className="p-10 mx-auto w-full max-w-[700px] flex justify-center flex-col"
+        className="p-10 mx-auto w-full max-w-[610px] flex justify-center flex-col"
         action={handleLogin}
       >
-        <div className="flex items-center justify-between mb-10">
+        <div className="flex items-center justify-between mb-10 ">
           <Link href={'/'} className="w-[30px]">
             <Tooltip content="Voltar ao inicio">
               <Logo className={'max-w-[30px]'} />
@@ -45,31 +50,11 @@ export default function LoginPage() {
           </Link>
           <ModeToggle />
         </div>
-        <h1 className="text-2xl font-title font-bold">Entrar na sua conta</h1>
-        <p className="text-sm text-muted-foreground">
+        <h1 className="text-2xl font-title font-bold">Boas Vindas</h1>
+        <p className="text-sm text-muted-foreground mt-2">
           Caso <b>não tenha conta</b>, ela sera criada automaticamente.
         </p>
         <div className="flex flex-col gap-3 mt-6">
-          <Button
-            variant={'outline'}
-            className="w-full gap-2"
-            type="submit"
-            name="provider"
-            value={'github'}
-          >
-            <FaGithub size={20} />
-            Entrar com Github
-          </Button>
-          <Button
-            className="w-full gap-2"
-            type="submit"
-            name="provider"
-            value={'linkedin'}
-            variant={'outline'}
-          >
-            <FaLinkedin size={20} />
-            Entrar com Linkedin
-          </Button>
           <Button
             className="w-full gap-2"
             type="submit"
@@ -79,6 +64,29 @@ export default function LoginPage() {
             <FcGoogle size={20} />
             Entrar com Google
           </Button>
+          <div className="flex gap-3 justify-between items-center">
+            <Button
+              variant={'outline'}
+              className="w-full gap-2"
+              type="submit"
+              name="provider"
+              value={'github'}
+            >
+              <FaGithub size={20} />
+              Entrar com Github
+            </Button>
+            <span className="text-sm text-muted-foreground">ou</span>
+            <Button
+              className="w-full gap-2"
+              type="submit"
+              name="provider"
+              value={'linkedin'}
+              variant={'outline'}
+            >
+              <FaLinkedin size={20} />
+              Entrar com Linkedin
+            </Button>
+          </div>
         </div>
       </form>
     </div>

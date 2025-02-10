@@ -1,52 +1,56 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import Logo from '@/assets/logo.svg';
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
 import { ContactDialog } from './contact-dialog';
 import Link from 'next/link';
+import { useIsMobile } from '@/hook/use-isMobile';
+import { Navbar } from './navbar';
+import { NavbarMobile } from './navbar/mobile-dialog-menu';
+import { cn } from '@/lib/utils';
 
 export const Header = () => {
   const [activeItem, setActiveItem] = useState<string>('Home');
   const [open, setOpen] = useState(false);
+  const isMobile = useIsMobile(838);
 
   const menuItems = ['Home', 'Interface', 'Currículos'];
 
   return (
     <>
-      <header className="absolute left-0 right-0 top-8 w-[90%] bg-transparent max-w-[950px] mx-auto px-3.5 py-2 border border-muted rounded-2xl z-10">
-        <div className="flex justify-between items-center">
-          <div className="w-[220px] text-muted-foreground font-semibold">
-            <Link href={'/'} className=" flex gap-2 items-end">
-              <Logo className="max-w-[25px] cursor-pointer" />
+      <header
+        className={cn(
+          'absolute left-0 right-0 top-8 w-[85%] bg-black/40 max-w-[950px] mx-auto px-3.5 py-2 border border-muted rounded-2xl z-10',
+          isMobile && 'py-3 top-7'
+        )}
+      >
+        <div className="flex justify-between items-center h-full">
+          <div className="w-[220px] text-accent-foreground font-semibold">
+            <Link href={'/'} className=" flex gap-2 items-end ">
+              <Logo
+                className={cn(
+                  'max-w-[25px] cursor-pointer z-20',
+                  isMobile && 'max-w-[20px]'
+                )}
+              />
               Modifyca
             </Link>
           </div>
-          <nav className="flex gap-9 items-center justify-center text-foreground text-base">
-            {menuItems.map(name => (
-              <span
-                key={name}
-                onClick={() => setActiveItem(name)}
-                className={cn(
-                  'cursor-pointer bg-transparent px-3.5 py-2 rounded-md transition-colors ',
-                  activeItem === name && 'bg-background'
-                )}
-              >
-                {name}
-              </span>
-            ))}
-          </nav>
-          <div className="w-[220px] flex justify-end">
-            <Button
-              size="header"
-              variant="default"
-              className="py-3 px-6 rounded-md bg-white font-semibold font-page text-background flex gap-2 "
-              onClick={() => setOpen(true)}
-            >
-              Entre em Contato
-            </Button>
-          </div>
+
+          <Navbar
+            active={setActiveItem}
+            activeItem={activeItem}
+            infos={menuItems}
+            setOpen={setOpen}
+          />
+
+          <NavbarMobile
+            active={setActiveItem}
+            activeItem={activeItem}
+            infos={menuItems}
+            open={open}
+            setOpen={setOpen}
+          />
         </div>
       </header>
       <ContactDialog open={open} setOpen={setOpen} />

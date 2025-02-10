@@ -12,6 +12,8 @@ export const ContactDialog = ({ open, setOpen }: ContactDialogProps) => {
       setOpen={setOpen}
       title="Entre em Contato"
       description="email e numero do Desenvolvedor Responsavel"
+      className="w-[90%] flex justify-start flex-col gap-4 max-sm:flex-start"
+      classNameTitle="max-sm:item-start"
       content={
         <>
           <div className="flex gap-2 items-center">

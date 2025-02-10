@@ -4,8 +4,8 @@ import Link from 'next/link';
 export const Footer = () => {
   return (
     <footer className="bg-current py-3">
-      <div className="max-w-[1400px] w-[90%] h-full mx-auto flex justify-between items-center">
-        <p className="font-page font-medium text-zinc-500 text-base">
+      <div className="max-w-[1400px] w-[90%] gap-4 h-full mx-auto flex justify-between items-center max-sm:flex-col">
+        <p className="font-page font-medium text-zinc-500 text-center">
           Copyright © 2025 <span className="text-background">modifyca.com</span>
           . Todos os direitos reservados.
         </p>

@@ -25,7 +25,7 @@ export const CardDescriptionAi = ({
   return (
     <div
       className={cn(
-        'rounded-xl border border-muted-foreground bg-card-foreground text-card-foreground shadow overflow-hidden py-5 px-5 flex flex-col gap-3',
+        'rounded-xl border h-full border-muted-foreground bg-card-foreground text-card-foreground shadow overflow-hidden py-5 px-5 flex flex-col gap-3',
         'justify-between',
         className
       )}
@@ -47,7 +47,7 @@ export const CardDescriptionAi = ({
           {description}
         </p>
       </div>
-      <div className="font-page font-semibold text-background flex gap-4 items-center mt-auto ">
+      <div className="font-page font-semibold text-background flex gap-4 items-center mt-auto">
         {nameBtn}
         <button
           onClick={isSession}

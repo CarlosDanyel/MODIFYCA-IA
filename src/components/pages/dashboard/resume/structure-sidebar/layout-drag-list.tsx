@@ -82,7 +82,7 @@ export const LayoutDragList = ({ title, fields }: LayoutDragListProps) => {
   const language = watch('structure.language');
 
   return (
-    <div className="w-full p-2 bg-muted rounded">
+    <div className="w-full p-2 bg-transparent rounded">
       <p className="font-title text-sm font-bold mb-2">{title}</p>
 
       <div className="flex flex-col gap-2">
@@ -98,10 +98,10 @@ export const LayoutDragList = ({ title, fields }: LayoutDragListProps) => {
                 ref={provided.innerRef}
                 {...provided.draggableProps}
                 {...provided.dragHandleProps}
-                className="flex items-center gap-1 bg-foreground p-1 rounded"
+                className="flex items-center gap-1 bg-popover border p-1 rounded"
               >
-                <GripVertical className="w-4 h-4 min-w-4 text-background" />
-                <p className="text-accent text-xs font-semibold">
+                <GripVertical className="w-4 h-7 min-w-4 " />
+                <p className="text-current text-sm font-semibold">
                   {labels[field.key][language]}
                 </p>
               </div>

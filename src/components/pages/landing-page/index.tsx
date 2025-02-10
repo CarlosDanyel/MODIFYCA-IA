@@ -30,7 +30,7 @@ export const HomePage = ({ user }: HomePageProps) => {
   };
 
   return (
-    <div className="h-full w-full pt-9 bg-white">
+    <div className="h-full w-full pt-9 bg-white max-sm:pt-0 overflow-hidden">
       <div className="h-full w-full relative  ">
         <Header />
         <main className="h-full w-full">
