@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   title: 'Modifyca',
   description: 'A plataforma de currículos mais completa e fácil de usar.',
   icons: {
-    icon: '/icon.svg',
+    icon: '/icon.png',
   },
 };
 

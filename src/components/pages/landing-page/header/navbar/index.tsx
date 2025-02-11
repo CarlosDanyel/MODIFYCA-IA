@@ -12,8 +12,8 @@ type NavbarProps = {
 export const Navbar = ({ infos, active, activeItem, setOpen }: NavbarProps) => {
   return (
     <>
-      <div className="flex max-[838px]:hidden">
-        <nav className="flex gap-9 items-center justify-center text-foreground text-base">
+      <div className="flex max-[838px]:hidden w-full justify-between">
+        <nav className="flex gap-9 items-center justify-center text-foreground text-base w-full">
           {infos.map(name => (
             <span
               key={name}
@@ -34,7 +34,7 @@ export const Navbar = ({ infos, active, activeItem, setOpen }: NavbarProps) => {
             </span>
           ))}
         </nav>
-        <div className="w-[220px] flex justify-end">
+        <div className="w-[220px] flex justify-end ">
           <Button
             size="header"
             variant="default"

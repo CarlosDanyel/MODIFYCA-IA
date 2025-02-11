@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ArrowDown,
   ArrowRight,
@@ -64,7 +66,7 @@ export const Sevices = () => {
           className={cn(
             'grid grid-cols-4 grid-rows-2 mt-6 gap-6',
             'max-lg:grid-cols-2 max-lg:grid-rows-2 max-lg:gap-4 max-lg:mt-6',
-            'max-md:grid-cols-1 max-md:grid-rows-[auto] max-lg:grid-rows-6 max-lg:gap-4 max-lg:mt-10 '
+            'max-md:grid-cols-1 max-md:grid-rows-[auto] max-lg:grid-rows-3 max-lg:gap-4 max-lg:mt-10 '
           )}
         >
           <CardDescriptionAi

@@ -1,5 +1,3 @@
-'use client';
-
 import { Header } from '@/components/pages/landing-page/header';
 import { Sevices } from './main/services';
 import { TemplateAutoPlay } from './main/tamplates-autoPlay';

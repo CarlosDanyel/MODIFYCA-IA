@@ -33,7 +33,7 @@ export const ClientProviders = ({ children }: ClientProvidersProps) => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider
         attribute="class"
-        defaultTheme="system"
+        defaultTheme="dark"
         enableSystem
         disableTransitionOnChange
       >

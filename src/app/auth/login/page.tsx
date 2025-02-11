@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { ModeToggle } from '@/components/shared/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -53,7 +52,6 @@ export default function LoginPage() {
             <ArrowLeft size={18} />
             Voltar
           </Link>
-          <ModeToggle />
         </div>
         <h1 className="text-2xl font-title font-bold">Boas Vindas</h1>
         <p className="text-sm text-muted-foreground mt-2">

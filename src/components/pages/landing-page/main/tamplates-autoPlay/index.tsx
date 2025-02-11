@@ -1,3 +1,5 @@
+'use client';
+
 import { Layout } from 'lucide-react';
 import { AutoPlay } from './autoPlay';
 import { cn } from '@/lib/utils';
