@@ -1,5 +1,4 @@
 import { HomePage } from '@/components/pages/landing-page';
-import { auth } from '@/lib/auth';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -39,7 +38,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Home() {
-  const session = await auth();
-  return <HomePage user={session?.user} />;
+export default function Home() {
+  return <HomePage />;
 }

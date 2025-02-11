@@ -1,11 +1,11 @@
 import { cn } from '@/lib/utils';
 import { ArrowRight, LucideIcon } from 'lucide-react';
+import Link from 'next/link';
 
 type CardDescriptionProps = {
   title: string;
   description: string;
   cardName: string;
-  isSession: () => void;
   icon: LucideIcon;
   className?: string;
 };
@@ -16,7 +16,6 @@ export const CardDescription = ({
   title,
   icon: Icon,
   className,
-  isSession,
 }: CardDescriptionProps) => {
   return (
     <div
@@ -42,12 +41,13 @@ export const CardDescription = ({
       </p>
       <div className="font-page font-semibold text-background flex gap-4 items-center mt-auto">
         Acessar Agora
-        <button
-          onClick={isSession}
+        <Link
+          href="/dashboard/resumes"
+          passHref
           className="bg-black w-[40px] h-[30px] flex items-center justify-center rounded-full"
         >
           <ArrowRight className="text-white" />
-        </button>
+        </Link>
       </div>
     </div>
   );

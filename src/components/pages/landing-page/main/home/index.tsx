@@ -11,14 +11,11 @@ import { Perfil } from './perfil';
 import { TiltComponent } from '../services/Tilt';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hook/use-isMobile';
-import { Link } from 'react-scroll';
+import { Link as LinkTo } from 'react-scroll';
 import { TooltipTime } from '@/components/ui/tooltip/time';
+import Link from 'next/link';
 
-type PageHomeProps = {
-  isSession: () => void;
-};
-
-export const PageHome = ({ isSession }: PageHomeProps) => {
+export const PageHome = () => {
   const isMobile = useIsMobile(518);
   const isTable = useIsMobile(1024);
 
@@ -111,18 +108,19 @@ export const PageHome = ({ isSession }: PageHomeProps) => {
                 size={'page'}
                 className="rounded-md  font-semibold font-page text-white flex gap-2  "
               >
-                <Link to={'Serviços'} smooth={true} duration={1000}>
+                <LinkTo to={'Serviços'} smooth={true} duration={1000}>
                   Conhecer a Modifyca
-                </Link>
+                </LinkTo>
                 <ArrowDown />
               </Button>
               <Button
                 variant={'default'}
                 size={'page'}
                 className="rounded-md font-semibold font-page text-background flex gap-2 "
-                onClick={isSession}
               >
-                Comece gratuitamente
+                <Link href="/dashboard/resumes" passHref>
+                  Comece gratuitamente
+                </Link>
                 <ArrowRight />
               </Button>
             </div>

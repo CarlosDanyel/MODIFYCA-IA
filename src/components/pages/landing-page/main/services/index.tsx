@@ -14,11 +14,7 @@ import { cn } from '@/lib/utils';
 import { CardDescription } from './card-description';
 import { useIsMobile } from '@/hook/use-isMobile';
 
-type SevicesProps = {
-  isSession: () => void;
-};
-
-export const Sevices = ({ isSession }: SevicesProps) => {
+export const Sevices = () => {
   const isMobile = useIsMobile(518);
 
   return (
@@ -75,7 +71,6 @@ export const Sevices = ({ isSession }: SevicesProps) => {
             title="Gere seu Currículo Automaticamente"
             description="Gere seu currículo de acordo com a descrição e nome da vaga!"
             cardName="Vença qualquer plataforma"
-            isSession={isSession}
             iconBtn={ArrowRight}
             nameBtn="Gerar Agora"
             icon={BookOpenCheck}
@@ -84,7 +79,6 @@ export const Sevices = ({ isSession }: SevicesProps) => {
             title="Traduza para Qualquer Idioma"
             description="Traduza automaticamente todas as informações do currículo para qualquer Idioma!"
             cardName="Vença qualquer plataforma"
-            isSession={isSession}
             nameBtn="Quero Traduzir"
             iconBtn={ArrowRight}
             icon={Languages}
@@ -95,7 +89,6 @@ export const Sevices = ({ isSession }: SevicesProps) => {
           design moderno, inteligência artificial e otimização estratégica para
           destacar suas habilidades e experiências"
             cardName="Vença qualquer plataforma"
-            isSession={isSession}
             icon={Rocket}
             className="col-span-2 max-md:col-span-1"
           />
@@ -104,7 +97,6 @@ export const Sevices = ({ isSession }: SevicesProps) => {
             description="Corrija automaticamente qualquer tipo de texto, garantindo precisão, clareza!"
             cardName="Vença qualquer plataforma"
             nameBtn="Melhorar Agora"
-            isSession={isSession}
             iconBtn={ArrowRight}
             icon={Workflow}
           />
@@ -113,7 +105,6 @@ export const Sevices = ({ isSession }: SevicesProps) => {
             title="Modelos Disponíveis"
             description=" Descubra nossos modelos vencedores, agora disponíveis para você. Acesse facilmente as opções mais eficazes!"
             cardName="Vença qualquer plataforma"
-            isSession={isSession}
             nameBtn="Ver Modelos"
             iconBtn={ArrowDown}
             icon={Layout}
@@ -123,7 +114,6 @@ export const Sevices = ({ isSession }: SevicesProps) => {
             title="Explore o Potencial da nossa AI"
             description="Nossa inteligência artificial analisa, otimiza e refina seu currículo para destacar suas habilidades e experiências de forma estratégica."
             cardName="AI quando e a qualquer momento"
-            isSession={isSession}
             icon={Bot}
             className="col-span-2 max-md:col-span-1"
           />

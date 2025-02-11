@@ -1,11 +1,11 @@
 import { cn } from '@/lib/utils';
 import { LucideIcon } from 'lucide-react';
+import Link from 'next/link';
 
 type CardDescriptionAiProps = {
   title: string;
   description: string;
   cardName: string;
-  isSession: () => void;
   icon: LucideIcon;
   iconBtn: LucideIcon;
   className?: string;
@@ -20,7 +20,6 @@ export const CardDescriptionAi = ({
   iconBtn: IconBtn,
   nameBtn,
   className,
-  isSession,
 }: CardDescriptionAiProps) => {
   return (
     <div
@@ -49,12 +48,13 @@ export const CardDescriptionAi = ({
       </div>
       <div className="font-page font-semibold text-background flex gap-4 items-center mt-auto">
         {nameBtn}
-        <button
-          onClick={isSession}
+        <Link
+          href="/dashboard/resumes"
+          passHref
           className="bg-black w-[40px] h-[30px] flex items-center justify-center rounded-full"
         >
           <IconBtn className="text-white" />
-        </button>
+        </Link>
       </div>
     </div>
   );
