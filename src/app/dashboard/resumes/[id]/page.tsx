@@ -14,15 +14,16 @@ export const metadata: Metadata = {
     'Painel de acesso aos currículos criados na Modifyca. Acesse e gerencie seus currículos de forma simples e rápida.',
 };
 
-export default async function DashboardResumesPage({
+export default async function DashboardResumePage({
   params,
 }: DashboardResumesPageProps) {
-  const { id: resumeId } = await params;
+  const resumeId = params.id;
+
   const resume = await getResumeById(resumeId);
 
   if (!resume) return notFound();
 
-  const initialData = resume?.data as ResumeData;
+  const initialData = resume.data as ResumeData;
 
   const session = await auth();
 
