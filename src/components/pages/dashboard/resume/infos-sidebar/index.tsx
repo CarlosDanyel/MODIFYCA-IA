@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import React from 'react';
-import Logo from '@/assets/logo.svg';
 import { Separator } from '@/components/ui/separator';
 import BasicInfoSection from './sections/basic-info';
 import SummarySection from './sections/summary';
