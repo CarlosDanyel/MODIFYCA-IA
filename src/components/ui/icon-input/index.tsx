@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
+
 import { useDebounce } from '@/hook/use-debounce';
 import { Input } from '../input';
 

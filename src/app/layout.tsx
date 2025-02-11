@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import { Nunito, Inter_Tight } from 'next/font/google';
+import { Inter_Tight } from 'next/font/google';
 import '../styles/globals.css';
 import { cn } from '@/lib/utils';
 import { setDefaultOptions } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { ClientProviders } from '@/components/shared/client-providers';
 
-const fontSans = Nunito({
+const fontSans = Inter_Tight({
   variable: '--font-sans',
   subsets: ['latin'],
 });

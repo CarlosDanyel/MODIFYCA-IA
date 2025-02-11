@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { BaseDiaploProps, Dialog } from '@/components/ui/dialog';
 import { MultipleDragListItemData, ResumeArrayKeys } from '.';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';

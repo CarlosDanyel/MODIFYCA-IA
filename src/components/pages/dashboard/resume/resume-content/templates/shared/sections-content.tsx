@@ -1,8 +1,11 @@
-import { Element } from "../../resume-element";
-import { cn } from "@/lib/utils";
-import { Link } from "./link";
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 
-type LevelIndicatorVariant = "dots" | "bars";
+import { Element } from '../../resume-element';
+import { cn } from '@/lib/utils';
+import { Link } from './link';
+
+type LevelIndicatorVariant = 'dots' | 'bars';
 
 type LevelIndicatorProps = {
   level: number;
@@ -23,26 +26,26 @@ const LevelIndicator = ({
   level,
   levelsColor,
   className,
-  variant = "dots",
+  variant = 'dots',
 }: LevelIndicatorProps) => {
   if (!level) return null;
 
   return (
-    <div className={cn("flex items-center gap-1", className, levelsColor)}>
-      {variant === "dots" && (
+    <div className={cn('flex items-center gap-1', className, levelsColor)}>
+      {variant === 'dots' && (
         <>
           {Array.from({ length: 5 }).map((_, i) => (
             <div
               key={`indicator-item-${i}`}
               className={cn(
-                "w-2 h-2 rounded-full border border-current",
-                i < level && "bg-current"
+                'w-2 h-2 rounded-full border border-current',
+                i < level && 'bg-current'
               )}
             />
           ))}
         </>
       )}
-      {variant === "bars" && (
+      {variant === 'bars' && (
         <div className="w-full flex h-1.5 rounded-full overflow-hidden my-1 max-w-[200px]">
           <div
             className="h-full bg-current"
@@ -58,12 +61,12 @@ const LevelIndicator = ({
 export const ResumeSectionContent = ({
   section,
   content,
-  levelsColor = "text-resume-primary",
+  levelsColor = 'text-resume-primary',
   linkIconColor,
   levelIndicatorVariant,
 }: ResumeSectionContentProps) => {
   switch (section.key) {
-    case "socialMedias":
+    case 'socialMedias':
       return (
         <div className="flex flex-col gap-2 text-sm">
           {content.socialMedias.map((socialMedia, i) => (
@@ -86,14 +89,14 @@ export const ResumeSectionContent = ({
           ))}
         </div>
       );
-    case "summary":
+    case 'summary':
       return (
         <div
           className="text-sm"
           dangerouslySetInnerHTML={{ __html: content.summary }}
         />
       );
-    case "experiences":
+    case 'experiences':
       return (
         <div className="flex flex-col gap-4">
           {content.experiences.map((experience, i) => (
@@ -124,7 +127,7 @@ export const ResumeSectionContent = ({
           ))}
         </div>
       );
-    case "educations":
+    case 'educations':
       return (
         <div className="flex flex-col gap-4">
           {content.educations.map((education, i) => (
@@ -155,7 +158,7 @@ export const ResumeSectionContent = ({
           ))}
         </div>
       );
-    case "skills":
+    case 'skills':
       return (
         <div className="flex flex-col gap-4">
           {content.skills.map((skill, i) => {
@@ -177,7 +180,7 @@ export const ResumeSectionContent = ({
           })}
         </div>
       );
-    case "languages":
+    case 'languages':
       return (
         <div className="flex flex-col gap-4">
           {content.languages.map((language, i) => {
@@ -190,13 +193,17 @@ export const ResumeSectionContent = ({
               >
                 <Element className="font-bold -mb-1.5">{language.name}</Element>
                 <Element>{language.description}</Element>
-                <LevelIndicator level={level} levelsColor={levelsColor} variant={levelIndicatorVariant} />
+                <LevelIndicator
+                  level={level}
+                  levelsColor={levelsColor}
+                  variant={levelIndicatorVariant}
+                />
               </div>
             );
           })}
         </div>
       );
-    case "certifications":
+    case 'certifications':
       return (
         <div className="flex flex-col gap-4">
           {content.certifications.map((certification, i) => (
@@ -224,7 +231,7 @@ export const ResumeSectionContent = ({
           ))}
         </div>
       );
-    case "projects":
+    case 'projects':
       return (
         <div className="flex flex-col gap-4">
           {content.projects.map((project, i) => (

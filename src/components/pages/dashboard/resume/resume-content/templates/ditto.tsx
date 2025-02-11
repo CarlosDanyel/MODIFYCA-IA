@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
+
 import { BaseResumeProps } from '.';
 import { Element } from '../resume-element';
 import { sectionIsEmpty } from '@/lib/utils';
