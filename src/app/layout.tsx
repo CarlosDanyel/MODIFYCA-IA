@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import { Nunito_Sans, Inter_Tight } from 'next/font/google';
+import { Nunito, Inter_Tight } from 'next/font/google';
 import '../styles/globals.css';
 import { cn } from '@/lib/utils';
 import { setDefaultOptions } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { ClientProviders } from '@/components/shared/client-providers';
 
-const fontSans = Nunito_Sans({
+const fontSans = Nunito({
   variable: '--font-sans',
   subsets: ['latin'],
 });
@@ -22,8 +22,11 @@ const fontPage = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  title: 'Viza',
-  description: 'Crie o seu curriculo',
+  title: 'Modifyca',
+  description: 'A plataforma de currículos mais completa e fácil de usar.',
+  icons: {
+    icon: '/icon.svg',
+  },
 };
 
 setDefaultOptions({ locale: ptBR });

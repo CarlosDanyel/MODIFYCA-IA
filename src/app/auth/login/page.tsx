@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Logo from '@/assets/logo.svg';
+import LogoAuth from '@/assets/LogoAuth.svg';
 import { ModeToggle } from '@/components/shared/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { FcGoogle } from 'react-icons/fc';
@@ -7,8 +8,15 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { signIn } from '@/lib/auth';
 import Link from 'next/link';
 import { Tooltip } from '@/components/ui/tooltip';
+import { Metadata } from 'next';
 
 type Providers = 'github' | 'google' | 'linkedin';
+
+export const metadata: Metadata = {
+  title: 'Modifyca | Faça Login',
+  description:
+    'Acesse sua conta na Modifyca para criar e gerenciar seus currículos online. Entre agora e destaque-se no mercado de trabalho!',
+};
 
 export default function LoginPage() {
   const handleLogin = async (form: FormData) => {
@@ -25,8 +33,8 @@ export default function LoginPage() {
     <div className="grid grid-cols-[1.1fr,1fr] h-screen overflow-hidden max-lg:grid-cols-[1fr]">
       <aside className="relative max-lg:hidden">
         <Tooltip content="Voltar ao inicio">
-          <Logo
-            className={'max-w-[30px] absolute top-9 left-9 cursor-pointer'}
+          <LogoAuth
+            className={'max-w-[150px] absolute top-9 left-9 cursor-pointer'}
           />
         </Tooltip>
         <Image
@@ -64,31 +72,26 @@ export default function LoginPage() {
             <FcGoogle size={20} />
             Entrar com Google
           </Button>
-          <div className="flex gap-3 justify-between items-center max-md:flex-col">
-            <Button
-              variant={'outline'}
-              className="w-full gap-2"
-              type="submit"
-              name="provider"
-              value={'github'}
-            >
-              <FaGithub size={20} />
-              Entrar com Github
-            </Button>
-            <span className="text-sm text-muted-foreground max-md:hidden">
-              ou
-            </span>
-            <Button
-              className="w-full gap-2"
-              type="submit"
-              name="provider"
-              value={'linkedin'}
-              variant={'outline'}
-            >
-              <FaLinkedin size={20} />
-              Entrar com Linkedin
-            </Button>
-          </div>
+          <Button
+            variant={'outline'}
+            className="w-full gap-2"
+            type="submit"
+            name="provider"
+            value={'github'}
+          >
+            <FaGithub size={20} />
+            Entrar com Github
+          </Button>
+          <Button
+            className="w-full gap-2"
+            type="submit"
+            name="provider"
+            value={'linkedin'}
+            variant={'outline'}
+          >
+            <FaLinkedin size={20} />
+            Entrar com Linkedin
+          </Button>
         </div>
       </form>
     </div>
