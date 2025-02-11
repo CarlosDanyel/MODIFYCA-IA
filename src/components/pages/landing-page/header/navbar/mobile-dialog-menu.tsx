@@ -13,6 +13,8 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { ContactDialog } from '../contact-dialog';
 
+import { Link } from 'react-scroll';
+
 type NavbarProps = {
   infos: string[];
   active: (name: string) => void;
@@ -47,7 +49,9 @@ export const NavbarMobile = ({
                   activeItem === name && 'bg-muted  '
                 )}
               >
-                {name}
+                <Link to={name} smooth={true} duration={500}>
+                  {name}
+                </Link>
               </DropdownMenuItem>
             ))}
             <DropdownMenuItem className=" flex flex-col">

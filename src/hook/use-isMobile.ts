@@ -1,7 +1,9 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 
 export const useIsMobile = (breakpoint: number) => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
   useEffect(() => {
     const checkSizePage = () => {
@@ -9,7 +11,6 @@ export const useIsMobile = (breakpoint: number) => {
     };
 
     checkSizePage();
-
     window.addEventListener('resize', checkSizePage);
 
     return () => {

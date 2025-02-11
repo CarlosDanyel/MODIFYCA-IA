@@ -16,6 +16,7 @@ import { UpdatedResumeData } from '@/db/actions';
 import { useParams } from 'next/navigation';
 import { mergician } from 'mergician';
 import { getHighResImage } from '@/lib/utils';
+import { useIsMobile } from '@/hook/use-isMobile';
 
 type ResumePageProps = {
   title: string;
@@ -25,6 +26,9 @@ type ResumePageProps = {
 
 const ResumePage = ({ initialData, title, user }: ResumePageProps) => {
   const params = useParams();
+  const isMobile = useIsMobile(1024);
+
+  const direction = !isMobile ? 'horizontal' : 'vertical';
 
   const userImageUrl = getHighResImage(user?.image ?? '', 200);
 
@@ -102,19 +106,19 @@ const ResumePage = ({ initialData, title, user }: ResumePageProps) => {
 
   return (
     <FormProvider {...methods}>
-      <main className=" w-full h-screen overflow-hidden">
-        <ResizablePanelGroup direction="horizontal" className="w-full h-full ">
+      <main className=" w-full h-[250vh] overflow-hidden lg:h-screen">
+        <ResizablePanelGroup direction={direction} className="w-full h-full">
           <ResizablePanel minSize={20} maxSize={40} defaultSize={30}>
             <InfosSidebar />
           </ResizablePanel>
           <ResizableHandle withHandle />
 
           <ResizablePanel>
-            <ResumeContent title={title} />
+            <ResumeContent title={title} isMobile={isMobile as boolean} />
           </ResizablePanel>
           <ResizableHandle withHandle />
 
-          <ResizablePanel minSize={20} maxSize={35} defaultSize={25}>
+          <ResizablePanel minSize={27} maxSize={35} defaultSize={25}>
             <StructureSidebar />
           </ResizablePanel>
         </ResizablePanelGroup>

@@ -29,15 +29,18 @@ export default function DashboardAccountPage() {
   });
   return (
     <>
-      <h1 className="font-title font-bold text-3xl flex items-center gap-2">
-        <SquareUser size={25} className="text-muted-foreground" />
+      <h1 className="font-title font-bold text-2xl flex items-start gap-2 ">
+        <SquareUser
+          size={25}
+          className="text-muted-foreground hidden md:flex"
+        />
         Configurações de conta
       </h1>
 
       <Separator className="my-6" />
 
       <section>
-        <div className="flex items-center gap-1">
+        <div className="flex items-start gap-1 flex-col md:flex-row">
           Você possui{''}
           <strong className="text-foreground inline-flex gap-0.5 items-center">
             <BadgeCent size={14} />
@@ -51,7 +54,7 @@ export default function DashboardAccountPage() {
           inteligência artificial.
         </p>
 
-        <div className="flex items-center gap-4 mt-4">
+        <div className="flex items-start gap-4 mt-4 flex-col md:flex-row">
           <Button
             variant={'secondary'}
             disabled={isLoading || isPending}
@@ -67,6 +70,7 @@ export default function DashboardAccountPage() {
             Minhas Transações
           </Button>
         </div>
+        <Separator className="my-6" />
       </section>
 
       <BuyCreditsDialog open={showCreditsModal} setOpen={setShowCreditsModal} />

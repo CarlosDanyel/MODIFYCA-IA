@@ -1,18 +1,18 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import PerfilCursos1 from '@/assets/Perfil1.svg';
 import PerfilCursos2 from '@/assets/Perfil2.svg';
 import PerfilCursos3 from '@/assets/Perfil3.svg';
 import PerfilCursos4 from '@/assets/Perfil4.svg';
-import { ArrowDown, ArrowRight, SmilePlus } from 'lucide-react';
 import Image from 'next/image';
-
-import { Tooltip } from '@/components/ui/tooltip';
+import { Button } from '@/components/ui/button';
+import { ArrowDown, ArrowRight, SmilePlus } from 'lucide-react';
 import { Perfil } from './perfil';
 import { TiltComponent } from '../services/Tilt';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hook/use-isMobile';
+import { Link } from 'react-scroll';
+import { TooltipTime } from '@/components/ui/tooltip/time';
 
 type PageHomeProps = {
   isSession: () => void;
@@ -20,10 +20,12 @@ type PageHomeProps = {
 
 export const PageHome = ({ isSession }: PageHomeProps) => {
   const isMobile = useIsMobile(518);
+  const isTable = useIsMobile(1024);
 
   return (
     <>
       <section
+        id="Home"
         className={cn(
           'h-[93vh] bg-black flex flex-col rounded-2xl relative mx-8 overflow-hidden max-sm:rounded-none max-sm:mx-0 max-md:h-[89vh] ',
           isMobile && 'h-[70vh]'
@@ -45,28 +47,36 @@ export const PageHome = ({ isSession }: PageHomeProps) => {
         />
         <div className="max-w-[1020px] w-[90%] h-full mx-auto flex flex-col items-center justify-center relative max-md:mt-[-2.5rem] max-sm:mt-[-0rem]">
           <Perfil className="right-20 bottom-1/4 z-10 max-sm:top-[40rem] max-sm:right-5 max-lg:bottom-[8rem] ">
-            <Tooltip
+            <TooltipTime
               timeOpen={3000}
               timeClose={3000}
               content="Plataforma realmente muito boa"
             >
               <PerfilCursos1 className="w-16 cursor-pointer" />
-            </Tooltip>
+            </TooltipTime>
           </Perfil>
-          <Perfil className="top-72 left-[1rem] z-10 max-lg:top-[14rem] max-sm:top-[30rem] ">
-            <Tooltip
+          <Perfil className="top-72 left-[1rem] z-10 max-lg:top-[14rem] max-sm:top-[30rem] max-[500px]:top-[39rem] max-[500px]:legt-[1rem]  ">
+            <TooltipTime
               timeOpen={3000}
               timeClose={100}
               content="Muito facil e rapido de criar"
             >
               <PerfilCursos2 className="w-16 cursor-pointer" />
-            </Tooltip>
+            </TooltipTime>
           </Perfil>
-          <Perfil className="bottom-60 left-[10rem] z-10 max-lg:hidden">
-            <Tooltip timeOpen={3000} timeClose={6000} content="Otimos modelos">
-              <PerfilCursos3 className="w-16 cursor-pointer" />
-            </Tooltip>
-          </Perfil>
+
+          {!isTable && (
+            <Perfil className="bottom-60 left-[10rem] z-10 max-lg:hidden">
+              <TooltipTime
+                timeOpen={3000}
+                timeClose={6000}
+                content="Otimos modelos"
+              >
+                <PerfilCursos3 className="w-16 cursor-pointer" />
+              </TooltipTime>
+            </Perfil>
+          )}
+
           <div
             className={cn(
               'flex flex-col justify-center items-center ',
@@ -101,7 +111,9 @@ export const PageHome = ({ isSession }: PageHomeProps) => {
                 size={'page'}
                 className="rounded-md  font-semibold font-page text-white flex gap-2  "
               >
-                Conhecer a Modifyca
+                <Link to={'Serviços'} smooth={true} duration={1000}>
+                  Conhecer a Modifyca
+                </Link>
                 <ArrowDown />
               </Button>
               <Button
@@ -119,24 +131,23 @@ export const PageHome = ({ isSession }: PageHomeProps) => {
       </section>
       <section
         className={cn(
-          'max-w-[1400px] w-[90%] mx-auto mt-[-13rem] relative px-2 max-[638px]:w-[100%] max-md:mt-[-12.5rem] max-[1610px]:mt-[-10rem]'
+          'max-w-[1400px] w-[90%] mx-auto mt-[-13rem] relative px-2 max-[638px]:w-[100%] max-md:mt-[-12.5rem] max-[1610px]:mt-[-10rem]',
+          isMobile && 'hidden'
         )}
       >
         <TiltComponent>
-          {!isMobile && (
-            <Image
-              src={'/images/dashboard.webp'}
-              alt="Plataforma Modifyca"
-              width={1300}
-              height={800}
-              className="w-[1900px] h-full object-cover rounded-2xl mx-auto"
-            />
-          )}
+          <Image
+            src={'/images/dashboard.webp'}
+            alt="Plataforma Modifyca"
+            width={1300}
+            height={800}
+            className="w-[1900px] h-full object-cover rounded-2xl mx-auto max-[518px]:hidden"
+          />
         </TiltComponent>
         <Perfil className="bottom-60 left-[13rem] z-10 max-[750px]:hidden">
-          <Tooltip content="Adicionando os ultimos detalhes">
+          <TooltipTime content="Adicionando os ultimos detalhes">
             <PerfilCursos4 className="w-16 cursor-pointer" />
-          </Tooltip>
+          </TooltipTime>
         </Perfil>
       </section>
     </>

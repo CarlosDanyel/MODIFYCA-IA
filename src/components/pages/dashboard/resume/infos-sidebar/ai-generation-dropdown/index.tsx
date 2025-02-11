@@ -79,12 +79,16 @@ const AiGenerationDropdown = () => {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button className="text-foreground bg-blue-700 gap 2 text-xs px-2.5 py-1 h-9 hover:bg-blue-800 transition-all ">
+          <Button
+            variant={'default'}
+            size={'header'}
+            className="flex gap 2 text-xs px-2.5 transition-all "
+          >
             <Bot size={20} />
             Inteligência Arificial
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent sideOffset={15} align="start">
+        <DropdownMenuContent sideOffset={15} align="start" className="mr-5">
           <DropdownMenuLabel className="text-muted-foreground text-xs flex items-center gap-1">
             Você possui {''}
             <strong className="text-foreground inline-flex gap-0.5 items-center">

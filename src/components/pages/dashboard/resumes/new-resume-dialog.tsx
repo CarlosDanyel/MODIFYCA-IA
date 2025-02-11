@@ -35,10 +35,12 @@ const NewResumeDialog = (props: BaseDiaploProps) => {
       {...props}
       title="Criar novo currículo"
       description="Para começar, escolha um título para seu currículo"
+      className="w-[90%] rounded-lg"
+      classNameTitle="text-start"
       content={
         <FormProvider {...methods}>
           <form
-            className="flex flex-col "
+            className="flex flex-col  "
             onSubmit={methods.handleSubmit(onSubmit)}
           >
             <InputField label="Titulo" name="title" required />

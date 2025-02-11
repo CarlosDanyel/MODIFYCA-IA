@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 export const TemplateAutoPlay = () => {
   return (
-    <section className="w-full h-full bg-background">
+    <section className="w-full h-full bg-background" id="Modelos">
       <div className="max-w-[1400px] w-[82%] h-full mx-auto pt-[6rem] pb-[5rem] relative">
         <div className="flex flex-col items-start justify-start">
           <div className="py-2 px-6 w-fit bg-white font-page rounded-2xl  font-semibold flex gap-2 items-center text-background max-md:text-sm mb-4">

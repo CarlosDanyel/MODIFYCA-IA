@@ -11,15 +11,19 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Link from 'next/link';
-import { LogOut, SquareUser } from 'lucide-react';
+import { LogOut, SquareUser, User2Icon } from 'lucide-react';
 import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
+import { useIsMobile } from '@/hook/use-isMobile';
+import React from 'react';
 
 type UserDropdownProps = {
   user?: User;
 };
 
 export const UserDropdown = ({ user }: UserDropdownProps) => {
+  const isMobile = useIsMobile(768);
+
   if (!user) return null;
 
   const initials = user?.name
@@ -31,17 +35,30 @@ export const UserDropdown = ({ user }: UserDropdownProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant={'ghost'} className="w-full gap-2 justify-start px-2">
-          <Avatar className="w-7 h-7 block">
-            <AvatarImage src={user?.image ?? ''} />
-            <AvatarFallback>{initials}</AvatarFallback>
-          </Avatar>
-          <p>{user.name}</p>
-        </Button>
+        {!isMobile ? (
+          <Button
+            variant={'ghost'}
+            className="w-full gap-2 justify-start px-2 "
+          >
+            <Avatar className="w-7 h-7 block">
+              <AvatarImage src={user?.image ?? ''} />
+              <AvatarFallback>{initials}</AvatarFallback>
+            </Avatar>
+            <p>{user.name}</p>
+          </Button>
+        ) : (
+          <Button
+            variant={'secondary'}
+            className="w-full gap-2 justify-start px-2"
+          >
+            <User2Icon />
+            Minha Conta
+          </Button>
+        )}
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="center"
-        className="w-[var(--radix-dropdown-menu-trigger-width)]"
+        className="lg:w-[var(--radix-dropdown-menu-trigger-width)] max-md:ml-3  max-md:mb-2 "
       >
         <DropdownMenuLabel>Minha conta</DropdownMenuLabel>
         <DropdownMenuSeparator />

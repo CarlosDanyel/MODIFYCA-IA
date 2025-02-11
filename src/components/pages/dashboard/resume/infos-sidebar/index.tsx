@@ -6,13 +6,18 @@ import BasicInfoSection from './sections/basic-info';
 import SummarySection from './sections/summary';
 import MultiplesSections from './sections/multiples';
 import AiGenerationDropdown from './ai-generation-dropdown';
+import { ArrowLeft } from 'lucide-react';
 
 const InfosSidebar = () => {
   return (
     <aside className="w-full h-full p-6 overflow-y-auto ">
-      <div className="w-full flex items-center justify-between ">
-        <Link href={'/dashboard/resumes/'}>
-          <Logo className="max-w-[30px] w-full" />
+      <div className="w-full flex items-center justify-between  ">
+        <Link
+          href={'/dashboard/resumes/'}
+          className="flex items-center gap-2 text-sm"
+        >
+          <ArrowLeft size={18} />
+          Voltar
         </Link>
         <AiGenerationDropdown />
       </div>

@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-scroll';
 
 type NavbarProps = {
   infos: string[];
@@ -16,14 +17,20 @@ export const Navbar = ({ infos, active, activeItem, setOpen }: NavbarProps) => {
           {infos.map(name => (
             <span
               key={name}
-              onClick={() => active(name)}
               className={cn(
                 'cursor-pointer bg-transparent px-3.5 py-2  rounded-md transition-colors text-primary-foreground dark:text-primary ',
                 activeItem === name &&
                   'bg-white text-primary dark:text-primary-foreground'
               )}
             >
-              {name}
+              <Link
+                onClick={() => active(name)}
+                to={name}
+                smooth={true}
+                duration={1000}
+              >
+                {name}
+              </Link>
             </span>
           ))}
         </nav>

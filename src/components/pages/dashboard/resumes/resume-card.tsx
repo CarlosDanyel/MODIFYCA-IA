@@ -18,7 +18,7 @@ export const ResumeCardButton = ({
   return (
     <button
       className={cn(
-        'w-full h-[350px] bg-muted/50 rounded border',
+        'w-full min-w-[100px] h-[350px] bg-muted/50 rounded border',
         'border-muted-foreground/20 flex items-center justify-center relative outline-none overflow-hidden',
         'hover:brightness-105 dark:hover:brightness-125 transition-all  '
       )}

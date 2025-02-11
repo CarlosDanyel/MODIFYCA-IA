@@ -7,9 +7,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from './primitive';
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
-type TooltipProps = {
+type TooltipTimeProps = {
   children: ReactNode;
   content: string | number | ReactNode;
   className?: string;
@@ -17,17 +17,34 @@ type TooltipProps = {
   timeClose?: number;
 };
 
-export const Tooltip = ({
+export const TooltipTime = ({
   children,
   content,
   className,
+  timeOpen,
+  timeClose,
   ...props
-}: TooltipProps) => {
+}: TooltipTimeProps) => {
+  const [isActive, setIsActive] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const startTimer = setTimeout(() => {
+      setIsActive(true);
+
+      const endTimer = setTimeout(() => {
+        setIsActive(false);
+      }, timeOpen);
+
+      return () => clearTimeout(endTimer);
+    }, timeClose);
+
+    return () => clearTimeout(startTimer);
+  }, [timeClose, timeOpen]);
 
   return (
     <TooltipProvider>
-      <TooltipRoot open={isHovered} delayDuration={300}>
+      <TooltipRoot open={isActive || isHovered} delayDuration={300}>
         <TooltipTrigger
           asChild
           {...props}

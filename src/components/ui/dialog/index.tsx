@@ -7,6 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from './primitive';
+import { cn } from '@/lib/utils';
 
 export type BaseDiaploProps = {
   open?: boolean;
@@ -35,8 +36,13 @@ export const Dialog = ({
   return (
     <DialogRoot open={open} onOpenChange={setOpen}>
       {children && <DialogTrigger asChild>{children}</DialogTrigger>}
-      <DialogContent className={className}>
-        <DialogHeader className={classNameTitle}>
+      <DialogContent
+        className={cn(
+          'w-[90%] flex justify-start flex-col gap-4 max-sm:flex-start rounded-lg',
+          className
+        )}
+      >
+        <DialogHeader className={cn('text-start', classNameTitle)}>
           <DialogTitle>{title}</DialogTitle>
           {description && <DialogDescription>{description}</DialogDescription>}
         </DialogHeader>

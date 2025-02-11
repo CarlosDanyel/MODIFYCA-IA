@@ -14,7 +14,7 @@ export const Header = () => {
   const [open, setOpen] = useState(false);
   const isMobile = useIsMobile(838);
 
-  const menuItems = ['Home', 'Interface', 'Currículos'];
+  const menuItems = ['Home', 'Serviços', 'Modelos'];
 
   return (
     <>

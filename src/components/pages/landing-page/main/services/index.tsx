@@ -12,17 +12,41 @@ import { Lines } from './lines';
 import { CardDescriptionAi } from './card-description/card-description-ai';
 import { cn } from '@/lib/utils';
 import { CardDescription } from './card-description';
+import { useIsMobile } from '@/hook/use-isMobile';
 
 type SevicesProps = {
   isSession: () => void;
 };
 
 export const Sevices = ({ isSession }: SevicesProps) => {
+  const isMobile = useIsMobile(518);
+
   return (
-    <section className="h-full w-full bg-current mt-[-20rem]">
-      <div className="max-w-[1400px] w-[90%] h-full mx-auto pt-[26rem] pb-[10rem] relative">
-        <Lines className="left-28 h-[16.6rem] top-[20rem] z-10 max-md:left-6" />
-        <Lines className="right-28 h-[16.6rem] top-[20rem] z-10 max-md:right-6" />
+    <section
+      id="Serviços"
+      className={cn(
+        'h-full w-full bg-current mt-[-20rem]',
+        isMobile && 'mt-[0rem]'
+      )}
+    >
+      <div
+        className={cn(
+          'max-w-[1400px] w-[90%] h-full mx-auto pt-[26rem] pb-[10rem] relative',
+          isMobile && 'py-[6rem]'
+        )}
+      >
+        <Lines
+          className={cn(
+            'left-28 h-[16.6rem] top-[20rem] z-10 max-md:left-6',
+            isMobile && 'top-0'
+          )}
+        />
+        <Lines
+          className={cn(
+            'right-28 h-[16.6rem] top-[20rem] z-10 max-md:right-6',
+            isMobile && 'top-0'
+          )}
+        />
         <div className="flex flex-col items-center justify-center">
           <div className="py-2 px-6 w-fit bg-background font-page rounded-2xl mb-2 font-semibold flex gap-2 items-center text-foreground max-md:text-sm z-10">
             <Bot size={20} />
