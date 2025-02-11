@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import Logo from '@/assets/LogoAuth.svg';
+import Logo from '@/assets/logo-th.svg';
 import { NavItems } from '@/components/pages/dashboard/nav-items';
 import { UserDropdown } from '@/components/pages/dashboard/user-dropdown';
 import { ModeToggle } from '@/components/shared/theme-toggle';

@@ -1,14 +1,12 @@
 import Image from 'next/image';
-import Logo from '@/assets/logo.svg';
-import LogoAuth from '@/assets/LogoAuth.svg';
 import { ModeToggle } from '@/components/shared/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { signIn } from '@/lib/auth';
 import Link from 'next/link';
-import { Tooltip } from '@/components/ui/tooltip';
 import { Metadata } from 'next';
+import { ArrowLeft } from 'lucide-react';
 
 type Providers = 'github' | 'google' | 'linkedin';
 
@@ -32,11 +30,13 @@ export default function LoginPage() {
   return (
     <div className="grid grid-cols-[1.1fr,1fr] h-screen overflow-hidden max-lg:grid-cols-[1fr]">
       <aside className="relative max-lg:hidden">
-        <Tooltip content="Voltar ao inicio">
-          <LogoAuth
-            className={'max-w-[150px] absolute top-9 left-9 cursor-pointer'}
-          />
-        </Tooltip>
+        <Image
+          width={200}
+          height={100}
+          src={'/images/logo-th.png'}
+          alt="Uma mulher segurando em suas mãos e  olhando para o celular sorridente, o celular ilumina o seu rosto"
+          className={'max-w-[150px] absolute top-9 left-9'}
+        />
         <Image
           width={1000}
           height={800}
@@ -51,10 +51,9 @@ export default function LoginPage() {
         action={handleLogin}
       >
         <div className="flex items-center justify-between mb-10 ">
-          <Link href={'/'} className="w-[30px]">
-            <Tooltip content="Voltar ao inicio">
-              <Logo className={'max-w-[30px]'} />
-            </Tooltip>
+          <Link href={'/'} className="flex items-center gap-2 text-base">
+            <ArrowLeft size={18} />
+            Voltar
           </Link>
           <ModeToggle />
         </div>
