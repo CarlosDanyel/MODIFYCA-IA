@@ -25,8 +25,6 @@ export default function LoginPage() {
     await signIn(provider, { redirectTo: '/dashboard/resumes' });
   };
 
-  console.log('env', process.env.DATABASE_URL!);
-
   return (
     <div className="grid grid-cols-[1.1fr,1fr] h-screen overflow-hidden max-lg:grid-cols-[1fr]">
       <aside className="relative max-lg:hidden">
