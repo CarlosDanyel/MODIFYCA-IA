@@ -21,8 +21,8 @@ const NewResumeDialog = (props: BaseDiaploProps) => {
   const { mutate: handleCreateResume, isLoading } = useMutation({
     mutationFn: createResume,
     onSuccess: resume => {
-      toast.success('Currículo criado com sucesso');
       router.push(`/dashboard/resumes/${resume.id}`);
+      toast.success('Currículo criado com sucesso');
     },
   });
 
