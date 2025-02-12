@@ -1,5 +1,7 @@
+'use client';
+
 import Logo from '@/assets/logo.svg';
-import Link from 'next/link';
+import { Link } from 'react-scroll';
 
 export const Footer = () => {
   return (
@@ -9,13 +11,14 @@ export const Footer = () => {
           Copyright © 2025 <span className="text-background">modifyca.com</span>
           . Todos os direitos reservados.
         </p>
-
         <Link
-          href={'/'}
-          className=" w-fit flex gap-2 items-center font-page font-medium text-zinc-600 text-base"
+          to="Home"
+          duration={800}
+          smooth={true}
+          className=" w-fit flex gap-2 items-center font-page font-medium text-zinc-600 text-base cursor-pointer"
         >
           Powered by
-          <Logo className="w-[20px] cursor-pointer" />
+          <Logo className="w-[20px]" />
         </Link>
       </div>
     </footer>

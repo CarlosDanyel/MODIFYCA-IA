@@ -24,8 +24,8 @@ export const PageHome = () => {
       <section
         id="Home"
         className={cn(
-          'h-[93vh] bg-black flex flex-col rounded-2xl relative mx-8 overflow-hidden max-sm:rounded-none max-sm:mx-0 max-md:h-[89vh] ',
-          isMobile && 'h-[70vh]'
+          'h-[60rem] bg-black flex flex-col rounded-2xl relative mx-8 overflow-hidden max-sm:rounded-none max-sm:mx-0 max-md:h-[55rem] ',
+          isMobile && '!h-[50rem] '
         )}
       >
         <Image

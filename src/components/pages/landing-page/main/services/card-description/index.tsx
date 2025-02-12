@@ -39,16 +39,16 @@ export const CardDescription = ({
       <p className="text-muted font-sans font-semibold text-sm mb-3">
         {description}
       </p>
-      <div className="font-page font-semibold text-background flex gap-4 items-center mt-auto">
+      <Link
+        href="/dashboard/resumes"
+        passHref
+        className="font-page font-semibold text-background flex gap-4 items-center mt-auto"
+      >
         Acessar Agora
-        <Link
-          href="/dashboard/resumes"
-          passHref
-          className="bg-black w-[40px] h-[30px] flex items-center justify-center rounded-full"
-        >
+        <div className="bg-black w-[40px] h-[30px] flex items-center justify-center rounded-full">
           <ArrowRight className="text-white" />
-        </Link>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 };

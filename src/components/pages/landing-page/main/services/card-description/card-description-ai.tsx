@@ -46,16 +46,16 @@ export const CardDescriptionAi = ({
           {description}
         </p>
       </div>
-      <div className="font-page font-semibold text-background flex gap-4 items-center mt-auto">
+      <Link
+        href="/dashboard/resumes"
+        passHref
+        className="font-page font-semibold text-background flex gap-4 items-center mt-auto"
+      >
         {nameBtn}
-        <Link
-          href="/dashboard/resumes"
-          passHref
-          className="bg-black w-[40px] h-[30px] flex items-center justify-center rounded-full"
-        >
+        <div className="bg-black w-[40px] h-[30px] flex items-center justify-center rounded-full">
           <IconBtn className="text-white" />
-        </Link>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 };
