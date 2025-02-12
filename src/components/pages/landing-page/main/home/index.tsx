@@ -24,8 +24,8 @@ export const PageHome = () => {
       <section
         id="Home"
         className={cn(
-          'h-[60rem] bg-black flex flex-col rounded-2xl relative mx-8 overflow-hidden max-sm:rounded-none max-sm:mx-0 max-md:h-[55rem] ',
-          isMobile && '!h-[50rem] '
+          'h-[93vh] bg-black flex flex-col rounded-2xl relative mx-8 overflow-hidden max-sm:rounded-none max-sm:mx-0 max-md:h-[89vh] ',
+          isMobile && 'h-[70vh]'
         )}
       >
         <Image
@@ -63,7 +63,12 @@ export const PageHome = () => {
           </Perfil>
 
           {!isTable && (
-            <Perfil className="bottom-60 left-[10rem] z-10 max-lg:hidden">
+            <Perfil
+              className={cn(
+                'bottom-60 left-[10rem] z-10 max-lg:hidden ',
+                '[@media(max-height:870px)]:hidden'
+              )}
+            >
               <TooltipTime
                 timeOpen={3000}
                 timeClose={6000}
@@ -130,6 +135,8 @@ export const PageHome = () => {
       <section
         className={cn(
           'max-w-[1400px] w-[90%] mx-auto mt-[-13rem] relative px-2 max-[638px]:w-[100%] max-md:mt-[-12.5rem] max-[1610px]:mt-[-10rem]',
+          '[@media(max-height:940px)]:mt-[-7rem]',
+          '[@media(max-height:730px)]:!mt-[-3rem]',
           isMobile && 'hidden'
         )}
       >
