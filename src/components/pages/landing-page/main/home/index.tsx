@@ -25,7 +25,7 @@ export const PageHome = () => {
         id="Home"
         className={cn(
           'h-[93vh] bg-black flex flex-col rounded-2xl relative mx-8 overflow-hidden max-sm:rounded-none max-sm:mx-0 max-md:h-[89vh]',
-          '[@media(max-height:718px)]:h-[690px]',
+          '[@media(max-height:830px)]:h-[690px]',
           isMobile && 'h-[70vh]'
         )}
       >
@@ -141,7 +141,6 @@ export const PageHome = () => {
         className={cn(
           'max-w-[1400px] w-[90%] mx-auto mt-[-13rem] relative px-2 max-[638px]:w-[100%] max-md:mt-[-12.5rem] max-[1610px]:mt-[-10rem]',
           '[@media(max-height:940px)]:mt-[-7rem]',
-          '[@media(max-height:730px)]:!mt-[-3rem]',
           isMobile && 'hidden'
         )}
       >
