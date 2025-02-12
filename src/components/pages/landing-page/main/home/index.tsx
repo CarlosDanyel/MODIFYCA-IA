@@ -24,7 +24,8 @@ export const PageHome = () => {
       <section
         id="Home"
         className={cn(
-          'h-[93vh] bg-black flex flex-col rounded-2xl relative mx-8 overflow-hidden max-sm:rounded-none max-sm:mx-0 max-md:h-[89vh] ',
+          'h-[93vh] bg-black flex flex-col rounded-2xl relative mx-8 overflow-hidden max-sm:rounded-none max-sm:mx-0 max-md:h-[89vh]',
+          '[@media(max-height:718px)]:h-[690px]',
           isMobile && 'h-[70vh]'
         )}
       >
@@ -42,7 +43,11 @@ export const PageHome = () => {
           height={600}
           className="absolute right-0"
         />
-        <div className="max-w-[1020px] w-[90%] h-full mx-auto flex flex-col items-center justify-center relative max-md:mt-[-2.5rem] max-sm:mt-[-0rem]">
+        <div
+          className={cn(
+            'max-w-[1020px] w-[90%] h-full mx-auto flex flex-col items-center justify-center relative max-md:mt-[-2.5rem] max-sm:mt-[-0rem]'
+          )}
+        >
           <Perfil className="right-20 bottom-1/4 z-10 max-sm:top-[40rem] max-sm:right-5 max-lg:bottom-[8rem] ">
             <TooltipTime
               timeOpen={3000}
