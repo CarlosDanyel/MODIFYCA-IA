@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     'emprego',
     'Modifyca',
   ],
+
   openGraph: {
     title: 'Modifyca | Criação de Currículos Profissionais',
     description:
