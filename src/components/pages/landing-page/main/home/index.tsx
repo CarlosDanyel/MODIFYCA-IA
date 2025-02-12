@@ -17,7 +17,7 @@ import Link from 'next/link';
 
 export const PageHome = () => {
   const isMobile = useIsMobile(518);
-  const isTable = useIsMobile(1024);
+  const isTable = useIsMobile(1304);
 
   return (
     <>
