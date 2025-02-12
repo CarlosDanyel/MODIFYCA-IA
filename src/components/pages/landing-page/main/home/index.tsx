@@ -30,14 +30,14 @@ export const PageHome = () => {
         )}
       >
         <Image
-          src={'/images/shadow.png'}
+          src={'/images/shadow.webp'}
           alt=""
           width={600}
           height={600}
           className="absolute"
         />
         <Image
-          src={'/images/shadow2.png'}
+          src={'/images/shadow2.webp'}
           alt=""
           width={600}
           height={600}

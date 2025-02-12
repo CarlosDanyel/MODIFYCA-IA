@@ -30,14 +30,14 @@ export default function LoginPage() {
         <Image
           width={200}
           height={100}
-          src={'/images/logo-th.png'}
+          src={'/images/logo-th.webp'}
           alt="Uma mulher segurando em suas mãos e  olhando para o celular sorridente, o celular ilumina o seu rosto"
           className={'max-w-[150px] absolute top-9 left-9'}
         />
         <Image
-          width={1000}
+          width={900}
           height={800}
-          src={'/images/auth-bg.png'}
+          src={'/images/auth-bg.webp'}
           alt="Uma mulher segurando em suas mãos e  olhando para o celular sorridente, o celular ilumina o seu rosto"
           className="w-full h-full object-cover"
           quality={100}
