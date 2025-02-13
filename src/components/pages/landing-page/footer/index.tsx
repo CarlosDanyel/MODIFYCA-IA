@@ -15,7 +15,7 @@ export const Footer = () => {
           to="Home"
           duration={800}
           smooth={true}
-          className=" w-fit flex gap-2 items-center font-page font-medium text-zinc-600 text-base cursor-pointer"
+          className=" w-fit flex gap-2 items-center font-page font-medium dark:text-zinc-600 text-base cursor-pointer text-background"
         >
           Powered by
           <Logo className="w-[20px]" />

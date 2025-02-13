@@ -26,7 +26,7 @@ export const Header = () => {
       >
         <div className="flex justify-between items-center h-full">
           <div className="w-[220px] text-accent-foreground font-semibold">
-            <Link href={'/'} className=" flex gap-2 items-end ">
+            <Link href={'/'} className=" flex gap-2 items-end text-white">
               <Logo
                 className={cn(
                   'max-w-[25px] cursor-pointer z-20',
