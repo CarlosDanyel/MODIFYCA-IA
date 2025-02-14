@@ -10,6 +10,7 @@ import { RenameTitleDialog } from './rename-title-dialog';
 
 type NavigationHeaderProps = {
   title: string;
+  name?: string;
 };
 
 export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
@@ -17,16 +18,16 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
   return (
     <header
       className={cn(
-        'absolute w-full left-0 top-0 z-10 p-2 bg-background border-b border-muted flex ',
-        'items-center justify-between gap-2'
+        'absolute w-full left-0 top-0 z-10 p-2 bg-gray-200 dark:bg-neutral-900 border-b border-muted flex ',
+        'items-left justify-between gap-2 max-[591px]:flex-col'
       )}
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1 w-full">
         <Tooltip content="Voltar ao Painel">
           <Link href={'/dashboard/resumes'} passHref>
             <Button
               variant={'secondary'}
-              className="w-8 h-8 bg-transparent"
+              className="w-8 h-8 bg-transparent flex items-center"
               size="icon"
             >
               <HomeIcon size={18} />
@@ -36,8 +37,12 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
         <span className="text-muted-foreground">/</span>
         <RenameTitleDialog>
           <Tooltip content="Editar Nome de currículo">
-            <Button variant={'ghost'}>
-              <p className="cursor-pointer text-lg font-title font-bold ml-1 ">
+            <Button
+              variant="link"
+              size="resume"
+              className="w-full max-w-[400px] overflow-hidden"
+            >
+              <p className="cursor-pointer text-lg font-title font-bold ml-1 truncate w-full flex-shrink">
                 {title}
               </p>
             </Button>

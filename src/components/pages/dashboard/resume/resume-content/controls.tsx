@@ -31,7 +31,7 @@ export const TransformControls = ({ title }: TransformControlsProps) => {
   return (
     <div
       className={cn(
-        'absolute left-1/2 -translate-x-1/2 bottom-4 z-10 bg-background border border-muted',
+        'absolute left-1/2 -translate-x-1/2 bottom-4 z-20 bg-background border border-muted',
         'py-3 px-4 rounded-full flex items-center gap-2'
       )}
     >

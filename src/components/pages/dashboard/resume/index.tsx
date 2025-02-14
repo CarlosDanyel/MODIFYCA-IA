@@ -113,8 +113,12 @@ const ResumePage = ({ initialData, title, user }: ResumePageProps) => {
           </ResizablePanel>
           <ResizableHandle withHandle />
 
-          <ResizablePanel>
-            <ResumeContent title={title} isMobile={isMobile as boolean} />
+          <ResizablePanel className="flex flex-col">
+            <ResumeContent
+              user={user}
+              title={title}
+              isMobile={isMobile as boolean}
+            />
           </ResizablePanel>
           <ResizableHandle withHandle />
 

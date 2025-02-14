@@ -27,6 +27,7 @@ const buttonVariants = cva(
         icon: 'h-9 w-9',
         page: 'py-3 px-6',
         header: 'py-3 px-6',
+        resume: 'py-1 px-0',
       },
     },
     defaultVariants: {

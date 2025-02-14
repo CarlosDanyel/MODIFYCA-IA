@@ -82,7 +82,7 @@ const AiGenerationDropdown = () => {
           <Button
             variant={'default'}
             size={'header'}
-            className="flex gap 2 text-xs px-2.5 transition-all "
+            className="flex gap 2 text-xs transition-all bg-resume-primary text-white hover:bg-resume-primary-100 !hover:bg-resume-primary-500"
           >
             <Bot size={20} />
             Inteligência Arificial

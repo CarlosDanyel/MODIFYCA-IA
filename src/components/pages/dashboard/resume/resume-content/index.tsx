@@ -5,14 +5,22 @@ import { ResumeTemplate } from './templates';
 import { TransformControls } from './controls';
 import { NavigationHeader } from './header';
 import { useFormContext } from 'react-hook-form';
+import { User } from 'next-auth';
 
 type ResumeContentProps = {
   title: string;
   isMobile?: boolean;
+  user: User | undefined;
 };
 
-export const ResumeContent = ({ title, isMobile }: ResumeContentProps) => {
+export const ResumeContent = ({
+  title,
+  isMobile,
+  user,
+}: ResumeContentProps) => {
   const { watch } = useFormContext<ResumeData>();
+
+  const fisrtName = user?.name?.split(' ')[0] as string;
 
   const data = watch();
 
@@ -27,7 +35,7 @@ export const ResumeContent = ({ title, isMobile }: ResumeContentProps) => {
         disabled={!isMobile ? false : true}
       >
         <>
-          <NavigationHeader title={title} />
+          <NavigationHeader title={title} name={fisrtName} />
           <TransformControls title={title} />
           <TransformComponent>
             <ResumeTemplate data={data} />
