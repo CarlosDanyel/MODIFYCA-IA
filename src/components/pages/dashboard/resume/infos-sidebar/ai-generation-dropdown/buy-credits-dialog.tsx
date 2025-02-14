@@ -11,6 +11,7 @@ type BuyCreditsDialog = {
   open: boolean;
   setOpen: (open: boolean) => void;
 };
+
 export const BuyCreditsDialog = ({ open, setOpen }: BuyCreditsDialog) => {
   const pathname = usePathname();
   const { data, isLoading } = useQuery({
