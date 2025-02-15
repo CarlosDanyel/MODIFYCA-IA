@@ -60,8 +60,9 @@ export const TemplateDialog = ({
                   >
                     <Image
                       className="w-full h-full object-cover"
-                      width={150}
+                      width={450}
                       height={130}
+                      quality={100}
                       src={`/images/templates/${template}.webp`}
                       alt={template}
                     />
