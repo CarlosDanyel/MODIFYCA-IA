@@ -41,7 +41,7 @@ export const TemplateDialog = ({
           render={({ field }) => (
             <div
               className={cn(
-                'w-full grid grid-cols-2 gap-4 mt-4 h-[78vh] overflow-hidden overflow-y-scroll rounded-xl scrollbar-hide'
+                'w-full grid grid-cols-2 gap-4 mt-4 h-[68vh] overflow-hidden overflow-y-scroll rounded-xl scrollbar-hide'
               )}
             >
               {allTemplates.map(template => {
