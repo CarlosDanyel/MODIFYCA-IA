@@ -42,7 +42,7 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
               size="resume"
               className="w-full max-w-[400px] overflow-hidden"
             >
-              <p className="cursor-pointer text-lg font-title font-bold ml-1 truncate w-full flex-shrink">
+              <p className="cursor-pointer text-lg font-title font-bold ml-1 truncate w-full flex-shrink text-left">
                 {title}
               </p>
             </Button>
