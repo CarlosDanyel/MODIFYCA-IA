@@ -8,7 +8,7 @@ import { RenameTitle } from './sections/rename';
 
 const StructureSidebar = () => {
   return (
-    <aside className="w-full h-full p-6  overflow-y-auto ">
+    <aside className="w-full h-full p-6  overflow-y-auto scrollbar-hide">
       <RenameTitle />
       <Separator className="my-5" />
       <TemplateListSection />
