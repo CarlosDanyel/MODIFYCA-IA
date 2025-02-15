@@ -89,7 +89,7 @@ const AiGenerationDropdown = () => {
                 variant={'outline'}
               >
                 <Bot size={20} />
-                Inteligência Arificial
+                Currículo Inteligente
               </Button>
             </div>
           </DropdownMenuTrigger>
