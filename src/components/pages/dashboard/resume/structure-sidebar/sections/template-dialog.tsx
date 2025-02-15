@@ -34,6 +34,7 @@ export const TemplateDialog = ({
       setOpen={setOpen}
       title="Modelos de currículos"
       description="Escolha qual currículo usar!"
+      className="w-[90%] max-w-[37rem]"
       content={
         <Controller
           control={control}
