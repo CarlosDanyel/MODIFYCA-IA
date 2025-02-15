@@ -39,7 +39,11 @@ export const TemplateDialog = ({
           control={control}
           name="structure.template"
           render={({ field }) => (
-            <div className="w-full grid grid-cols-2 gap-4 mt-4">
+            <div
+              className={cn(
+                'w-full grid grid-cols-2 gap-4 mt-4 h-[78vh] overflow-hidden overflow-y-scroll rounded-xl scrollbar-hide'
+              )}
+            >
               {allTemplates.map(template => {
                 const isSelected = field.value === template;
                 return (
@@ -47,7 +51,8 @@ export const TemplateDialog = ({
                     type="button"
                     key={`template-${template}`}
                     className={cn(
-                      'w-full aspect-auto relative rounded border-2 border-muted overflow-hidden hover:brightness-95 transition-all',
+                      'w-full aspect-auto relative rounded border-2 border-muted hover:brightness-95 transition-all',
+                      'flex items-start justify-center',
                       isSelected && 'border-muted-foreground'
                     )}
                     onClick={() => handleResume(field, template)}
