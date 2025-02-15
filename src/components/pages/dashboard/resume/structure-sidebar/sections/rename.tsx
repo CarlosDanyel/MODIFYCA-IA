@@ -1,4 +1,4 @@
-import { FolderPen, LayoutTemplate } from 'lucide-react';
+import { FolderPen } from 'lucide-react';
 import SectionTitle from '../../infos-sidebar/section-title';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
@@ -9,7 +9,7 @@ export const RenameTitle = () => {
   return (
     <>
       <div className="flex flex-col gap-[1rem]">
-        <SectionTitle title="Renomear" icon={LayoutTemplate} />
+        <SectionTitle title="Renomear" icon={FolderPen} />
         <RenameTitleDialog open={open} setOpen={setOpen}>
           <Button
             className="w-full flex gap-2"

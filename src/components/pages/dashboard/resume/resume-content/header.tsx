@@ -18,7 +18,7 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
   return (
     <header
       className={cn(
-        'absolute w-full left-0 top-0 z-10 p-2 bg-gray-200 dark:bg-neutral-900 border-b border-muted flex ',
+        'absolute w-full left-0 top-0 z-10 px-2 py-3 bg-gray-200 dark:bg-neutral-900 border-b border-muted flex ',
         'items-left justify-between gap-2 max-[591px]:flex-col'
       )}
     >

@@ -1,8 +1,9 @@
-import { LucideIcon } from "lucide-react";
+import { LucideIcon } from 'lucide-react';
+import { IconType } from 'react-icons/lib';
 
 type SectionTitleProps = {
   title: string;
-  icon: LucideIcon;
+  icon: LucideIcon | IconType;
 };
 
 const SectionTitle = ({ icon: Icon, title }: SectionTitleProps) => {
