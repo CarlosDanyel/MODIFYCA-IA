@@ -2,14 +2,27 @@ import { Button } from '@/components/ui/button';
 import { Tooltip } from '@/components/ui/tooltip';
 import { useResumeDownload } from '@/hook/use-resume-download';
 import { cn } from '@/lib/utils';
-import { Download, RotateCcw, ZoomIn, ZoomOut } from 'lucide-react';
+import {
+  Download,
+  MouseOff,
+  Move,
+  RotateCcw,
+  ZoomIn,
+  ZoomOut,
+} from 'lucide-react';
 import { useControls } from 'react-zoom-pan-pinch';
 
 type TransformControlsProps = {
   title: string;
+  Setdisabled: (disabled: boolean) => void;
+  disabled: boolean;
 };
 
-export const TransformControls = ({ title }: TransformControlsProps) => {
+export const TransformControls = ({
+  title,
+  disabled,
+  Setdisabled,
+}: TransformControlsProps) => {
   const { zoomIn, zoomOut, centerView } = useControls();
   const { handleDownloadResume, isLoading } = useResumeDownload(title);
 
@@ -20,6 +33,12 @@ export const TransformControls = ({ title }: TransformControlsProps) => {
       icon: RotateCcw,
       label: 'Resetar Posição',
       onclick: () => centerView(0.5),
+    },
+    {
+      icon: disabled ? MouseOff : Move,
+      label: 'Baixar PDF',
+      onclick: () => Setdisabled(!disabled),
+      disabled: isLoading,
     },
     {
       icon: Download,

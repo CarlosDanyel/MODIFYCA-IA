@@ -36,17 +36,17 @@ export const NavigationHeader = ({ title }: NavigationHeaderProps) => {
         </Tooltip>
         <span className="text-muted-foreground">/</span>
         <RenameTitleDialog>
-          <Tooltip content="Editar Nome de currículo">
-            <Button
-              variant="link"
-              size="resume"
-              className="w-full max-w-[400px] overflow-hidden"
-            >
+          <Button
+            variant="link"
+            size="resume"
+            className="w-full max-w-[400px] overflow-hidden"
+          >
+            <Tooltip content="Editar Nome de currículo">
               <p className="cursor-pointer text-lg font-title font-bold ml-1 truncate w-full flex-shrink text-left">
                 {title}
               </p>
-            </Button>
-          </Tooltip>
+            </Tooltip>
+          </Button>
         </RenameTitleDialog>
       </div>
       <div className="flex gap-1 ">
