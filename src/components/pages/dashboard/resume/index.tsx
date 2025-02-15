@@ -30,7 +30,7 @@ const ResumePage = ({ initialData, title, user }: ResumePageProps) => {
 
   const direction = !isMobile ? 'horizontal' : 'vertical';
 
-  const userImageUrl = getHighResImage(user?.image ?? '', 200);
+  const userImageUrl = getHighResImage(user?.image ?? '', 600);
 
   const resumeId = params.id as string;
   const defaultValues: ResumeData = {
