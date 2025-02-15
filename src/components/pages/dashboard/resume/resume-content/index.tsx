@@ -6,7 +6,7 @@ import { TransformControls } from './controls';
 import { NavigationHeader } from './header';
 import { useFormContext } from 'react-hook-form';
 import { User } from 'next-auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type ResumeContentProps = {
   title: string;
@@ -14,18 +14,25 @@ type ResumeContentProps = {
   user: User | undefined;
 };
 
-export const ResumeContent = ({ title, user }: ResumeContentProps) => {
+export const ResumeContent = ({
+  title,
+  user,
+  isMobile,
+}: ResumeContentProps) => {
   const { watch } = useFormContext<ResumeData>();
+
   const [disabled, Setdisabled] = useState(false);
-
   const fisrtName = user?.name?.split(' ')[0] as string;
-
   const data = watch();
+
+  useEffect(() => {
+    Setdisabled(isMobile ?? false);
+  }, [isMobile]);
 
   return (
     <section className="overflow-hidden w-full h-full flex items-center justify-center relative bg-muted dark:bg-background">
       <TransformWrapper
-        initialScale={0.5}
+        initialScale={0.6}
         minScale={0.4}
         centerOnInit={true}
         centerZoomedOut

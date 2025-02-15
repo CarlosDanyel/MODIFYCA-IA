@@ -36,7 +36,7 @@ export const TransformControls = ({
     },
     {
       icon: disabled ? MouseOff : Move,
-      label: 'Baixar PDF',
+      label: disabled ? 'Desbloquear Movimento' : 'Bloquear Movimento',
       onclick: () => Setdisabled(!disabled),
       disabled: isLoading,
     },
