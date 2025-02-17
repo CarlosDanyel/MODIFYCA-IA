@@ -18,7 +18,6 @@ type InputFieldProps = ComponentProps<typeof Input> & {
 const InputField = ({
   label,
   name,
-
   required,
   containerClassName,
   extraContent,
