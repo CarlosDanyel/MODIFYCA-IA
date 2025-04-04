@@ -26,10 +26,13 @@ export const Header = () => {
       >
         <div className="flex justify-between items-center h-full">
           <div className="w-[220px] text-accent-foreground font-semibold">
-            <Link href={'/'} className=" flex gap-2 items-end text-white">
+            <Link
+              href={'/'}
+              className=" flex gap-2 items-end text-white outline-none select-none"
+            >
               <Logo
                 className={cn(
-                  'max-w-[25px] cursor-pointer z-20',
+                  'max-w-[25px] cursor-pointer z-20 outline-none select-none',
                   isMobile && 'max-w-[20px]'
                 )}
               />

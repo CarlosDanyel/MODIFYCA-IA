@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">
+  ✨📄<br>MODIFYCA – Currículos com Inteligência Artificial
+</h1>
 
-## Getting Started
+![Resultado final do projeto](/public/images/screen.png)
 
-First, run the development server:
+<h4 align="center"><a href="https://modifyca.com/">Clique para visitar a plataforma</a></h4>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌟 Sobre
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Apresentamos a **Modifyca**, uma plataforma inovadora que utiliza inteligência artificial para criar currículos profissionais de forma rápida, eficiente e estratégica. Com foco em praticidade, desempenho e alta conversão, a Modifyca oferece modelos prontos, sugestões personalizadas e geração automática de PDF. Se você busca se destacar em um mercado cada vez mais competitivo, aqui é o seu lugar. Já são **25 usuários ativos** criando currículos que chamam a atenção de recrutadores — venha ser o próximo!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📚 Funcionalidades
 
-To learn more about Next.js, take a look at the following resources:
+A Modifyca é uma aplicação web completa, com recursos pensados para otimizar a criação e personalização de currículos. As principais funcionalidades incluem:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Criação de Currículo com IA:** Gere descrições automáticas e destaque suas habilidades com base no seu perfil.
+- **Modelos Profissionais:** Escolha entre diferentes layouts que combinam com seu objetivo de carreira.
+- **Download em PDF:** Exporte seu currículo finalizado com apenas um clique.
+- **Editor Inteligente:** Edite campos com sugestões da IA em tempo real.
+- **Cadastro e Login com segurança:** Tenha seu progresso salvo e acessível em qualquer dispositivo.
+- **Área do Usuário:** Gerencie múltiplos currículos e acesse tudo rapidamente.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔐 Acesso
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Usuário Comum:** Pode criar, editar e baixar currículos.
+- **Administrador (restrito):** Gestão de usuários, análise de uso e monitoramento da IA.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 💼 Tecnologias e Ferramentas
+
+Este projeto foi desenvolvido utilizando um stack moderno e poderoso, garantindo performance, segurança e escalabilidade:
+
+- **Next.js**
+- **NextAuth**
+- **TypeScript**
+- **shadcn/ui**
+- **Framer Motion**
+- **Tailwind CSS**
+- **TanStack Query**
+- **React**
+- **React Hook Form**
+- **Axios**
+- **Sonner**
+- **React Parallax Tilt**
+- **React Scroll**
+- **OpenAI**
+- **Drizzle**
+- **Puppeteer**
+- **Stripe**
+- **PostgreSQL**
+- **Neon**
+
+---
+
+## 👁️‍🗨️ Versionamento
+
+- **Git / Github** — para controle de versão e deploy contínuo.
+
+---
+
+## 🎨 Design e Estilo
+
+O visual da Modifyca foi pensado para ser moderno, acessível e visualmente agradável, utilizando:
+
+- **Figma** – prototipação e UI
+- **Photoshop** – elementos gráficos
+
+---
+
+## 🧠 Geração de Imagem com IA
+
+- **VisualElectric** – geração criativa de assets visuais com IA.
+
+---
+
+<h2>Desenvolvedor</h2>
+
+<table>
+  <tr>
+    <td align="center">
+      <p>Carlos Danyel Silva Teixeira</p>
+    </td>
+  </tr>
+</table>

@@ -34,14 +34,14 @@ export const PageHome = () => {
           alt=""
           width={600}
           height={600}
-          className="absolute"
+          className="absolute select-none"
         />
         <Image
           src={'/images/shadow2.webp'}
           alt=""
           width={600}
           height={600}
-          className="absolute right-0"
+          className="absolute right-0 select-none"
         />
         <div
           className={cn(
@@ -78,6 +78,7 @@ export const PageHome = () => {
                 timeOpen={3000}
                 timeClose={6000}
                 content="Otimos modelos"
+                className="[@media(max-height:870px)]:hidden"
               >
                 <PerfilCursos3 className="w-16 cursor-pointer" />
               </TooltipTime>
@@ -99,7 +100,8 @@ export const PageHome = () => {
             <h1
               className={cn(
                 'font-page text-[80px] font-semibold normal-case leading-[96px] tracking-[-4px] text-center text-glow text-white',
-                'max-xl:text-[70px] max-xl:leading-[80px] max-xl:tracking-[-3px]',
+                'max-2xl:text-[65px] max-2xl:leading-[80px] max-2xl:tracking-[-2px]',
+                'max-xl:text-[55px] max-xl:leading-[70px] max-xl:tracking-[-2px]',
                 'max-lg:text-[50px] max-lg:leading-[62px] max-lg:tracking-[-3px]',
                 'max-md:text-[40px] max-md:leading-[50px] max-md:tracking-[-1px]',
                 'max-sm:text-[35px] max-sm:leading-[45px] max-sm:tracking-[-1px]'
@@ -123,16 +125,16 @@ export const PageHome = () => {
                 </LinkTo>
                 <ArrowDown />
               </Button>
-              <Button
-                variant={'default'}
-                size={'page'}
-                className="rounded-md font-semibold font-page text-background flex gap-2 "
-              >
-                <Link href="/dashboard/resumes" passHref>
+              <Link href="/dashboard/resumes" passHref>
+                <Button
+                  variant={'default'}
+                  size={'page'}
+                  className="rounded-md font-semibold font-page text-background flex gap-2 "
+                >
                   Comece gratuitamente
-                </Link>
-                <ArrowRight />
-              </Button>
+                  <ArrowRight />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'Acesse sua conta na Modifyca para criar e gerenciar seus currículos online. Entre agora e destaque-se no mercado de trabalho!',
 };
 
-export default function LoginPage() {
+export default async function LoginPage() {
   const handleLogin = async (form: FormData) => {
     'use server';
 
