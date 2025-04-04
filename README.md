@@ -42,6 +42,8 @@ A Modifyca vai além de apenas criar currículos. Nossa IA trabalha para **maxim
 
 - Nossa **inteligência artificial** analisa, otimiza e refina seu currículo para destacá-lo entre os concorrentes.
 
+---
+
 ## 💼 Tecnologias e Ferramentas
 
 Este projeto foi desenvolvido utilizando um stack moderno e poderoso, garantindo performance, segurança e escalabilidade:
