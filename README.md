@@ -9,6 +9,7 @@
 ## 🌟 Sobre
 
 Apresentamos a **Modifyca**, uma plataforma inovadora que utiliza inteligência artificial para criar currículos profissionais de forma rápida, eficiente e estratégica. Com foco em praticidade, desempenho e alta conversão, a Modifyca oferece modelos prontos, sugestões personalizadas e geração automática de PDF. Se você busca se destacar em um mercado cada vez mais competitivo, aqui é o seu lugar.
+
 ---
 
 ## 🚀 Serviços Oferecidos
