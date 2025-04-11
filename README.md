@@ -88,6 +88,7 @@ Este projeto foi desenvolvido utilizando um stack moderno e poderoso, garantindo
 - **Git / Github** — para controle de versão e deploy contínuo.
 
 ---
+
 ## 👁️‍🗨️ Deploy Automatizado
 
 - **Vercel** — Deploy automatizado via Vercel.
