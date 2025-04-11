@@ -12,6 +12,21 @@ Apresentamos a **Modifyca**, uma plataforma inovadora que utiliza inteligência 
 
 ---
 
+## 👁️‍🗨️ ODS
+
+- **ODS 9** - Industria, Inovação e Infraestrutura
+
+---
+
+---
+
+## 👁️‍🗨️ Testes
+
+- **Unitarios**
+- **Integração** 
+
+---
+
 ## 🚀 Serviços Oferecidos
 
 A Modifyca vai além de apenas criar currículos. Nossa IA trabalha para **maximizar suas chances de sucesso**! Confira os serviços disponíveis:
