@@ -18,13 +18,6 @@ Apresentamos a **Modifyca**, uma plataforma inovadora que utiliza inteligência 
 
 ---
 
-## 👁️‍🗨️ Testes
-
-- **Unitarios**
-- **Integração** 
-
----
-
 ## 🚀 Serviços Oferecidos
 
 A Modifyca vai além de apenas criar currículos. Nossa IA trabalha para **maximizar suas chances de sucesso**! Confira os serviços disponíveis:
@@ -52,6 +45,15 @@ A Modifyca vai além de apenas criar currículos. Nossa IA trabalha para **maxim
 ### 🤖 **Explore o Potencial da Nossa AI**
 
 - Nossa **inteligência artificial** analisa, otimiza e refina seu currículo para destacá-lo entre os concorrentes.
+
+---
+
+## 🚀 DevOps
+
+- Controle de Versionamento: Git / Github:
+- Deploy Continuo Vercel
+- Teste Unitarios e de Integração
+- Feedback Continuo: metricas de sucesso, reunioes pos deploy
 
 ---
 
