@@ -18,8 +18,6 @@ Apresentamos a **Modifyca**, uma plataforma inovadora que utiliza inteligência 
 
 ---
 
----
-
 ## 👁️‍🗨️ Testes
 
 - **Unitarios**
