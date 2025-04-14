@@ -48,15 +48,6 @@ A Modifyca vai além de apenas criar currículos. Nossa IA trabalha para **maxim
 
 ---
 
-## 🚀 DevOps
-
-- Controle de Versionamento: Git / Github:
-- Deploy Continuo Vercel
-- Teste Unitarios e de Integração
-- Feedback Continuo: metricas de sucesso, reunioes pos deploy
-
----
-
 ## 💼 Tecnologias e Ferramentas
 
 Este projeto foi desenvolvido utilizando um stack moderno e poderoso, garantindo performance, segurança e escalabilidade:
@@ -86,12 +77,6 @@ Este projeto foi desenvolvido utilizando um stack moderno e poderoso, garantindo
 ## 👁️‍🗨️ Versionamento
 
 - **Git / Github** — para controle de versão e deploy contínuo.
-
----
-
-## 👁️‍🗨️ Deploy Automatizado
-
-- **Vercel** — Deploy automatizado via Vercel.
 
 ---
 
