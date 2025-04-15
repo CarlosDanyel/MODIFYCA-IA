@@ -4,6 +4,8 @@
 
 ![Resultado final do projeto](/public/images/screen.png)
 
+<h4 align="center"><a href="https://modifyca.com/">Clique para visitar a plataforma</a></h4>
+
 ---
 
 ## 🌟 Sobre
