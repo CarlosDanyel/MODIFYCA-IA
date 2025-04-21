@@ -43,6 +43,7 @@ export const POST = async (request: Request) => {
                 name: "Nome da habilidade mais relevante para a vaga.",
                 keywords: "Palavras-chave relacionadas a essa habilidade, separadas por vírgula, que ajudem a destacar a competência."
                 level: 0-5 (0 para básico, 5 para avançado),
+                "id": "Um id unico para cada opção como neste exemplo: fc3994fc-0a99-4f9d-855f-db05944e52d8"
               },
               ...
             ]

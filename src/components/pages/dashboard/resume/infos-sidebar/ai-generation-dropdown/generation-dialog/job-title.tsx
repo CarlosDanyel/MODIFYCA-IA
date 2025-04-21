@@ -40,6 +40,8 @@ export const GenerateFromJobTitle = ({
     onSuccess: data => {
       const generation = JSON.parse(data.data) as GenerationData;
 
+      console.log('data', generation);
+
       setValue('content.infos.headline', generation.headline);
       setValue('content.summary', generation.summary);
       setValue('content.skills', generation.skills);

@@ -18,8 +18,6 @@ const BasicInfoSection = () => {
     .map(name => name[0].toUpperCase())
     .join('');
 
-  console.log(image);
-
   return (
     <div>
       <SectionTitle title="Informaçoes Básicas" icon={UserRound} />
